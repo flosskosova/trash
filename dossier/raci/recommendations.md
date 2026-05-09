@@ -62,30 +62,92 @@ MMPHI · AMMK · MINT · MoFin · MoEd · CG · KOM · EU · DON · PRO · IND/C
 
 **Row 15 — Education + awareness.** Ministry of Education has the operational R for curriculum; MMPHI is policy A. Citizens are R as the audience whose behavior is meant to change.
 
+## DYVÓ recommendations (complementary 6, plastic + commercial focus)
+
+> Six additional recommendations from NGO **DYVÓ**'s 2023 publication *Waste Management and Plastic Waste in Kosovo* (legal analysis + Lexathon + 7-municipality citizen focus groups + 150-respondent survey). These are **complementary** to the INDEP/KAS 15 — they sharpen the plastic + commercial-waste angle. Numbered 16-21 to continue the card deck. See [`../enrichment-summary-dyvo-plastic.md`](../enrichment-summary-dyvo-plastic.md) §7.
+
+### Actors in this matrix
+
+Same as above, plus: **INSP** (municipal/environmental inspectors — split out from KOM where the inspection function is the load-bearing role), **COMM** (commercial-sector businesses — split from IND/CON where the rule targets non-construction commercial waste generators), **PRESS** (media as awareness-campaign channel).
+
+| # | Recommendation (short) | MMPHI | AMMK | MINT | MoFin | MoEd | CG | KOM | INSP | EU | DON | PRO | IND/CON | COMM | NGO | PRESS | CIT |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 16 | AI on prevention/reduction of single-use plastics | **A,R** | C | — | C (tax mechanics) | — | I | — | — | — | — | **R** (compliance) | C | C | C | — | I |
+| 17 | Rigorous taxation system for plastic producers + importers | C | — | — | **A,R** | — | I (legislative) | — | — | I (acquis) | — | — | **R** (must comply) | **R** (must comply) | C | — | — |
+| 18 | PAYT (Pay-As-You-Throw) legal framework for commercial waste | **A** | — | — | C | — | I | **R** (operate) | — | — | — | — | — | **R** (must comply) | C | — | I (potentially extends) |
+| 19 | Business waste responsibility (mandatory waste plans) | **A** | C | — | — | — | I | C | **R** (enforce) | — | — | C | **R** (must comply) | **R** (must comply) | C | — | — |
+| 20 | Source-separation infrastructure with incentive policies | **A** | — | — | C (tax incentives) | — | I | **R** (operate) | — | I | C | C | — | — | C | — | **R** (must separate) |
+| 21 | Awareness campaigns | **A** | — | — | — | **R** (curriculum) | I | C (local) | — | I | C | — | — | — | **R** (campaign delivery) | **R** (channel) | **R** (audience) |
+
+### Row notes (DYVÓ)
+
+**Row 16 — Single-use plastics AI.** Concrete bans on plastic bags, bottles, straws, disposable containers. MMPHI is both A and R because it's an Administrative Instruction (the AI is a ministerial instrument, not a parliamentary law). PROs are R for compliance once EPR architecture exists. MoFin only consulted on tax-revenue mechanics if levies attach.
+
+**Row 17 — Plastic producer + importer tax.** Distinct from landfill tax (row 10) — this is upstream, on production + import rather than disposal. MoFin is A,R as the legislative + revenue owner. Both domestic IND/CON producers AND COMM importers are R (must comply). EU is I for acquis-alignment context. Mike's note: this is the most aggressive fiscal lever in the deck — closer to extended polluter-pays than landfill-tax.
+
+**Row 18 — PAYT for commercial waste.** Businesses charged by quantity. MMPHI sets the rule; KOM operates the metering + collection; COMM businesses are R (must comply). Households (CIT) flagged as I because doc says "potentially included" later. Hard cell: needs working volumetric measurement, which Pristina/KOM doesn't have.
+
+**Row 19 — Business waste responsibility.** Businesses required to draft waste management plans naming quantity, type, disposal method. **Inspections are the load-bearing R** — without enforcement, plans are shelfware. INSP split out here from KOM because the function is municipal *and* environmental inspectorate (AMMK side). Builds on EPR principle but operationalizes per-business.
+
+**Row 20 — Source separation + incentives.** MMPHI sets the rule; KOM operates infrastructure; MoFin is C for tax-incentive design (reductions for compliant companies, financial incentives for compliant households). Citizens are R because the incentive only works if they actually separate. Mirrors INDEP/KAS row 6 but adds the carrot to the stick.
+
+**Row 21 — Awareness campaigns.** Three-channel split: schools (MoEd), media (PRESS), NGO campaigns. Mirrors INDEP/KAS row 15 but adds PRESS explicitly as an actor — DYVÓ's doc names media campaigns + political-actor involvement specifically.
+
+### Cross-mapping to INDEP/KAS
+
+| DYVÓ rec | Relation to INDEP/KAS |
+|---|---|
+| **16. Single-use plastics AI** | **Extends INDEP/KAS 3** (EPR for packaging) — narrower, product-specific bans within the EPR-for-packaging scope. |
+| **17. Plastic producer + importer tax** | **More aggressive than INDEP/KAS 10** (landfill tax). Landfill tax is downstream (disposal); this is upstream (production + import). Treat as separate fiscal instrument, not duplicate. |
+| **18. PAYT for commercial** | **More specific than INDEP/KAS 5** (performance-based municipal financing). INDEP/KAS 5 ties municipal *transfers* to recycling outcomes; DYVÓ 18 ties *commercial fees* to volume generated. Different lever, complementary. |
+| **19. Business waste responsibility** | **Operationalizes INDEP/KAS 3** (EPR) **+ INDEP/KAS 8** (CDW recovery). Per-business waste plans are how EPR + CDW recovery actually get enforced on the ground. |
+| **20. Source separation + incentives** | **Mirrors INDEP/KAS 6** (mandatory source separation). DYVÓ adds the incentive layer (tax reductions, household rewards) that INDEP/KAS treats only as a mandate. |
+| **21. Awareness campaigns** | **Mirrors INDEP/KAS 15** (national education + awareness program). DYVÓ adds explicit media + political-actor channels alongside school curriculum. |
+
+DYVÓ's distinctive contributions are **17** (plastic-specific upstream tax) and **18** (PAYT for commercial). Both are policy levers absent from the INDEP/KAS deck. Adding them strengthens the Sim's plastic + commercial-waste play space.
+
 ## Concentration of accountability
+
+Updated to include DYVÓ rows 16-21.
 
 | Actor | # of A roles | Notable Rs |
 |---|---|---|
-| **MMPHI** | 8 of 15 | Plus R on DRS rollout (row 4) |
+| **MMPHI** | **12 of 21** (rows 1, 2, 3, 4, 5, 6, 8, 11, 13, 16, 18, 19, 20, 21 — A or A,R) | Plus R on rows 4, 16 |
 | MINT | 1 (row 9) | + R for industrial symbiosis |
-| MoFin | 3 (rows 5, 10, 12) | + A for row 14 |
-| MoEd | 0 | R on row 15 |
+| MoFin | **4** (rows 5, 10, 12, 17) | + A for row 14 |
+| MoEd | 0 | R on rows 15, **21** |
 | CG / Office of PM | 0 | R on row 2 |
 | AMMK | 0 | R on row 1 |
-| KOM | 0 | R on rows 6, 11, 13 |
+| KOM | 0 | R on rows 6, 11, 13, **18, 20** |
+| INSP | 0 | **R on row 19** |
+| COMM | 0 | **R on rows 17, 18, 19** |
+| PRESS | 0 | **R on row 21** |
 
-**Reading:** MMPHI is the load-bearing institution for over half the recommendations. Its capacity is the binding constraint. **MoFin appears in any recommendation with fiscal teeth** — landfill tax, GPP, CE innovation finance, performance-based municipal funding. **No recommendation has MINT or MoFin as a clean A,R.** Industrial-policy and fiscal-policy reforms are split between A and R, suggesting weaker alignment than the strict environmental-policy rows.
+**Reading (updated):** MMPHI's load-bearing share grew (12 of 21 As, ~57%) — DYVÓ's plastic + commercial recs are environmental-policy in nature, so they cluster on MMPHI. **MoFin gains a fourth A role (row 17)**, confirming the pattern that fiscal teeth trigger MoFin As. MoEd picks up a second R (row 21). **COMM is now a distinct actor with three R roles** — commercial businesses are the new compliance bloc the deck didn't surface before. **INSP splitting out from KOM** is a Sim refinement: enforcement R is structurally different from operational R.
 
 ## Sequencing implications for the Sim
 
 If players treat these as cards, several rows are dependent:
+
+### INDEP/KAS chains (unchanged)
 
 - **Row 1 (data system)** unlocks **Row 5 (performance-based funding)** — can't reward outcomes without data.
 - **Row 2 (Coordination Unit)** unlocks **Rows 3, 6, 7, 8** — cross-ministerial work needs the unit.
 - **Row 3 (EPR)** unlocks **Row 4 (DRS operation)** — DRS is a specific EPR implementation.
 - **Row 10 (landfill tax)** is a revenue source for **Row 7 (investment)** and **Row 14 (innovation finance)**.
 
-Suggested play order in a Sim: Row 1 → Row 2 → Rows 5+10 in parallel → 3+4 → 7+8+11+13 → 6+9+12 → 14+15.
+### DYVÓ chains (new)
+
+- **Row 17 (plastic producer/importer tax)** chains into **Row 7 (investment program)** — upstream plastic-tax revenue is a logical funding source for the plastic recycling + sorting infrastructure piece of row 7.
+- **Row 16 (single-use plastics AI)** depends on **Row 3 (EPR for packaging)** — the AI sits inside the EPR architecture.
+- **Row 18 (PAYT commercial)** depends on **Row 1 (data system)** + **Row 6 (mandatory source separation)** — can't bill by quantity without metering, can't meter without separation.
+- **Row 19 (business waste plans)** depends on **Row 3 (EPR)** and reinforces **Row 8 (CDW recovery)** — both compliance-side.
+- **Row 20 (source separation + incentives)** parallels and extends **Row 6** — play row 20 *after* row 6 to add the carrot.
+- **Row 21 (awareness)** parallels **Row 15** — they can play together as a combined awareness motion.
+
+Suggested updated play order in a Sim: **Row 1 → Row 2 → Rows 5+10+17 in parallel → 3+4+16 → 7+8+11+13+19 → 6+9+12+18+20 → 14+15+21.**
+
+The plastic-finance card (17) plays early alongside the landfill tax to establish the dual fiscal architecture. DYVÓ's specific implementation cards (16, 18, 19, 20) play in the same windows as their INDEP/KAS parents. Awareness (21) closes alongside 15.
 
 ## What's missing or unclear
 
@@ -96,10 +158,12 @@ Suggested play order in a Sim: Row 1 → Row 2 → Rows 5+10 in parallel → 3+4
 
 ## Sources
 
-- `dossier/enrichment-summary-pdf2.md` §7 — verbatim recommendations table with lead institutions
+- `dossier/enrichment-summary-pdf2.md` §7 — verbatim INDEP/KAS recommendations table with lead institutions
 - `dossier/enrichment-summary-pdf2.md` §4 — institutional architecture (for R/C/I assignments)
+- `dossier/enrichment-summary-dyvo-plastic.md` §7 — DYVÓ's six plastic + commercial-focused recommendations + cross-mapping to INDEP/KAS
+- `dossier/enrichment-summary-dyvo-plastic.md` §3, §5 — citizen-perception findings + comprehensive law catalogue used to inform DYVÓ row R/C/I assignments
 - `dossier/how-trash-works-pristina.md` for actor baseline behaviors
 
 ---
 
-*~80% confident. PRO column entries and the Trepça-related cells in rows 3, 9 are most speculative pending verification issues #4, #5, #6.*
+*~80% confident on INDEP/KAS rows 1-15. PRO column entries and the Trepça-related cells in rows 3, 9 are most speculative pending verification issues #4, #5, #6. DYVÓ rows 16-21 are ~75% confident — the lead-institution claims are explicit in the DYVÓ doc, but R/C/I splits for INSP, COMM, and PRESS are inferred from doc context plus the dossier's actor map rather than directly named.*

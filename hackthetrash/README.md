@@ -5,6 +5,8 @@
 ![Status](https://img.shields.io/badge/status-MVP--in--progress-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+🌐 **Live mockup preview:** [quarterly.systems/trashdemo](https://quarterly.systems/trashdemo/)
+
 ---
 
 ## 🌍 What is HackTheTrash?

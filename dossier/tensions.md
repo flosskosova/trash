@@ -17,14 +17,14 @@ The original dossier (`how-trash-works-pristina.md`) was AI-drafted from English
 
 **Reading:** Both numbers are plausibly correct for different denominators. Heinrich Böll Stiftung likely measured rural+urban combined; AMMK's 93.6% is the official agency figure and probably leans urban + formal. Treat the AMMK number as the *official* national figure and the lower numbers as the *experienced* coverage including rural gaps. The dossier should note the range exists and which authority cited which figure.
 
-### Tension 2: Total municipal waste figure
+### NOT a tension: Different metrics — generation vs. collection
 
-| Source | Tonnage | Year |
-|---|---|---|
-| Original dossier | ~490,000 tonnes/year | 2023 |
-| **INDEP/KAS 2026 (citing AMMK)** | **471,278 tonnes (2023), 449,708 tonnes (2024)** | 2023-2024 |
+| Source | Metric | Figure | Year |
+|---|---|---|---|
+| Original dossier | Total municipal waste **generation** | ~490,000 t/yr | 2023 |
+| **INDEP/KAS** (citing AMMK) | Total municipal waste **collected** | 471,278 t (2023), 449,708 t (2024) | 2023-2024 |
 
-**Reading:** INDEP/KAS is more recent and cites AMMK directly. Use 471k (2023) / 450k (2024) going forward. The dossier's 490k was probably an extrapolated or pre-revised figure.
+**Reading:** These measure different things — what's *produced* vs. what the formal system *captures*. 490k generated minus ~471k collected = ~19k tonnes uncollected (illegal dumping + informal channels + losses). Roughly consistent at ~96% formal capture rate. Use both: the dossier's "generation" figure and INDEP/KAS's "collected" series complement each other. (Reframed from a prior misclassification of this as a number-tension.)
 
 ### Tension 3: Per-capita generation
 

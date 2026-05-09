@@ -129,7 +129,8 @@ This section directly extends the whiteboard map.
 
 ### Kosovo policy stack
 
-- **Strategy and Action Plan for Integrated Waste Management 2024-2030** (revised April 2024)
+- **Kosovo Integrated Waste Management Strategy 2021-2030** — adopted by MMPHI May 2021 (the predecessor; per the original dossier line 156, 318)
+- **Strategy and Action Plan for Integrated Waste Management 2024-2030** — revised April 2024; current version (replaces/updates the 2021-2030 strategy)
 - **Roadmap for Circular Economy** (Udhërrëfyesi për Ekonominë Qarkore, MMPHI 2023)
 - **National Development Strategy 2030**
 - **Administrative Order 04/2025** — plastic bag tariffs (mandatory fees, took effect 2025)
@@ -163,7 +164,7 @@ This section directly extends the whiteboard map.
 
 ### What's working (or starting to)
 
-- ✅ Plastic bag imports down 68.4% post-Administrative Order 04/2025
+- ✅ Plastic bag imports down 68.4% post-Administrative Order 04/2025 ⚠ *(see internal-inconsistency note below)*
 - ✅ Composting plant in Pristina handling green/garden waste
 - ✅ Pilot composting program in Vushtrri municipality
 - ✅ Home composting programs (donor-supported)
@@ -171,6 +172,8 @@ This section directly extends the whiteboard map.
 - ✅ Trepça lead battery recycling — industrial-scale; Kosovo has actual recycling capacity for one specific stream
 - ✅ Strategic framework approved (Strategy + Roadmap + Action Plan)
 - ✅ DRS legislation passed (implementation pending)
+
+> ⚠ **Internal inconsistency in the source document.** The doc attributes the 68.4% plastic-bag-imports drop (measured 2023→2024 per AMMK) to Administrative Order **04/2025**. A 2025-numbered order can't have caused a 2023-2024 drop. Possible reconciliations: (a) Order 04/2025 codifies a 2023 or 2024 precursor with a different number; (b) the import drop was driven by import-tariff changes that pre-date the named order. Verify against the underlying admin order text before citing this as proof the system responds to policy.
 
 ### What's not working
 

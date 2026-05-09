@@ -18,6 +18,16 @@
 
 ---
 
+## See also (sibling files in this folder)
+
+- **[`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md)** — Structured extraction of the INDEP/KAS April 2026 policy document. National-policy-level: Strategy 2024-2030, DRS, EPR, the 6-tier priority pyramid, the 15 implementation recommendations. Use when you need policy stack, headline national numbers, or the EU-alignment view.
+- **[`tensions.md`](tensions.md)** — Reconciliation between this dossier and the enrichment summary. Flags numerical disagreements, different metrics, and what each source covers vs misses.
+- **[`acronyms.md`](acronyms.md)** — Single-source acronym glossary for this folder. Disambiguates the "KAS" collision (Kosovo Agency of Statistics vs Konrad-Adenauer-Stiftung) and 30+ other abbreviations.
+
+This dossier is authoritative for the **operational and political layer** (Pastrimi vs Komuna, named actors, the 2024-2025 crisis timeline, citizen quotes). The enrichment summary is authoritative for the **national-policy layer** (Strategy, DRS, EPR, EU alignment). The two are complementary, not competing.
+
+---
+
 ## Part 1: The physical system
 
 ### What waste exists and where it goes
@@ -83,7 +93,7 @@ The Ombudsperson, Hilmi Jashari, has previously commented on the rights and cond
 
 #### Pastrimi (KRM Pastrimi JSC)
 
-The Regional Waste Collection Company "Pastrimi" Joint Stock Company. A public enterprise with approximately 800-900 employees that provides waste collection services for several cities in Kosovo, with Pristina as its primary territory ([Cna.al/Kosova-Bota 2025](https://www.cna.al/english/kosova-bota/komuna-dhe-pastrimi-perplasen-per-faturat-e-grumbullimit-te-mbeturin-i422082)). The Municipality of Pristina is the main shareholder.
+The Regional Waste Collection Company "Pastrimi" Joint Stock Company. A public enterprise with approximately 800-900 employees that provides waste collection services for several cities in Kosovo, with Pristina as its primary territory ([Cna.al/Kosova-Bota 2025](https://www.cna.al/english/kosova-bota/komuna-dhe-pastrimi-perplasen-per-faturat-e-grumbullimit-te-mbeturin-i422082)). The Municipality of Pristina is the main shareholder. → For Pastrimi's place in the national policy stack and EPR/DRS context, see [`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md) §4 (Institutional architecture).
 
 Pastrimi operates 14 trucks for household waste collection and 3 trucks for businesses in Pristina, with 10 more being purchased ([Prishtina Insight 2025](https://prishtinainsight.com/waste-management-a-systemic-crisis-in-kosovo-mag/)). Japan's JICA grant aid program has provided 10 new compactor trucks to Pastrimi ([JICA Kosovo](https://www.jica.go.jp/kosovo/english/activities/activity05.html)).
 
@@ -105,7 +115,7 @@ Director: **Dardan Velija** (current). Previous director: Abdullah Haxhiu (as ci
 
 KLMC operates Mirash and most other public landfills. Charges entrance fees that, per EU assessment, only cover basic landfill management costs and do not provide for subsequent care or remediation ([Balkan Insight 2025](https://balkaninsight.com/2025/11/28/unbearable-the-legal-and-illegal-landfills-harming-lives-and-land-in-kosovo/)).
 
-KLMC says Pastrimi owes it approximately 1.9 million euros in unpaid landfill fees ([Balkan Insight 2025](https://balkaninsight.com/2025/11/28/unbearable-the-legal-and-illegal-landfills-harming-lives-and-land-in-kosovo/)). This debt is one of the structural pressure points: if KLMC refuses to accept Pastrimi trucks, collection in Pristina effectively stops, but KLMC also depends on Pastrimi's payments for its own operating revenue.
+KLMC says Pastrimi owes it approximately 1.9 million euros in unpaid landfill fees ([Balkan Insight 2025](https://balkaninsight.com/2025/11/28/unbearable-the-legal-and-illegal-landfills-harming-lives-and-land-in-kosovo/)). This debt is one of the structural pressure points: if KLMC refuses to accept Pastrimi trucks, collection in Pristina effectively stops, but KLMC also depends on Pastrimi's payments for its own operating revenue. → For KLMC's policy context (landfill directives, Strategy 2024-2030 closure plans, EU pressure on landfills), see [`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md) §5.
 
 #### Pastrimi's workers
 
@@ -168,6 +178,8 @@ AMMK has stated that Kosovo landfills do not have wastewater treatment, have hig
 A separate joint AMMK/GIZ study identified approximately 1,572 illegal dumpsites across 38 municipalities as of 2021 ([WasteCulture 2021](https://wasteculture.com/paper/4412/Current-state-of-Waste-Management-in-Kosovo-2021.html); [Heinrich Böll 2022](https://rs.boell.org/en/2022/08/03/kosovos-waste-mismanagement-failures-alternatives)). The methodology gap with current AMMK figures explains some of the data dispute.
 
 AMMK voice tends to be technical and bureaucratic. They produce reports. They do not enforce.
+
+*See also: [`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md) for AMMK's 2025 reports as the basis for current waste-coverage and tonnage figures (and [`tensions.md`](tensions.md) for where AMMK's numbers diverge from this dossier's earlier sources).*
 
 #### National Institute of Public Health of Kosovo (NIPHK / IKSHPK)
 
@@ -318,6 +330,8 @@ A constitutional challenge to the December 2024 regulation on environmental righ
 ### Kosovo Integrated Waste Management Strategy 2021-2030
 
 Adopted by MMPHI in May 2021. Sets ten-year targets for waste reduction, recycling, treatment, and circular economy transition ([US Trade.gov](https://www.trade.gov/country-commercial-guides/kosovo-waste-management-and-recycling)). Implementation has lagged the targets significantly. The 2010-2020 strategy that preceded it had set a 100% waste collection target by 2020; actual achievement was approximately 85% for households, 54% for businesses ([Heinrich Böll 2022](https://rs.boell.org/en/2022/08/03/kosovos-waste-mismanagement-failures-alternatives)).
+
+*Update: this strategy was revised in April 2024 and now carries the 2024-2030 dating. See [`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md) §5 for the current policy stack and the €77M / €41M investment commitments.*
 
 ### EU Waste Framework Directive
 
@@ -511,6 +525,8 @@ Reference framing from [Balkan Insight 2025](https://balkaninsight.com/2025/11/2
 ---
 
 ## Part 7: Quantitative anchors
+
+> **See also:** [`enrichment-summary-pdf2.md`](enrichment-summary-pdf2.md) §2 for AMMK 2025 figures (471k tonnes collected 2023, 449k 2024, 93.6%→90.9% coverage). The numbers below are the dossier's earlier sources; [`tensions.md`](tensions.md) reconciles them.
 
 The following numbers appear across the source material. They are useful for sizing the system, comparing actor claims, and establishing rough order-of-magnitude estimates. Verify each against the linked source before relying on it: many of these figures are contested between actors or vary across time.
 

@@ -2,6 +2,30 @@
 
 > **Confidence: ~80%.** Filled from `dossier/how-trash-works-pristina.md` + `dossier/enrichment-summary-pdf2.md` + the systems whiteboard. Cells marked `⚠` are contested in practice; cells marked `?` are pending verification (see open issues #4, #5, #6). Many "policy" rows describe roles that exist on paper but are weakly implemented — those are real responsibilities, real accountability gaps.
 
+## Sibling artifacts in `dossier/`
+
+The RACI matrices are one slice of a broader dossier. Use these companion files alongside.
+
+**For navigation (narrative + source layer):**
+- [`../how-trash-works-pristina.md`](../how-trash-works-pristina.md) — original dossier (operational + political layer)
+- [`../enrichment-summary-pdf2.md`](../enrichment-summary-pdf2.md) — INDEP/KAS national policy enrichment
+- [`../enrichment-summary-pg-ce.md`](../enrichment-summary-pg-ce.md) — GIZ MPG-CE time series enrichment
+- [`../enrichment-summary-dyvo-plastic.md`](../enrichment-summary-dyvo-plastic.md) — DYVÓ citizen voice enrichment
+- [`../enrichment-summary-mazreku-newlaw.md`](../enrichment-summary-mazreku-newlaw.md) — Mazreku new-law enrichment
+- [`../enrichment-summary-graphs.md`](../enrichment-summary-graphs.md) — DYVÓ survey instrument
+
+**For research / reference:**
+- [`../timeline.md`](../timeline.md) — master chronology 2010-2027
+- [`../numbers.md`](../numbers.md) — canonical numbers reference (115 data points)
+- [`../law-diff.md`](../law-diff.md) — old Law 04/L-060 vs new Law on Integrated WM (13 dimensions)
+- [`../tensions.md`](../tensions.md) — cross-source reconciliation
+- [`../acronyms.md`](../acronyms.md) — glossary
+
+**For builders (Sim + Reporter app teams):**
+- [`../system-map.json`](../system-map.json) — graph data model (60 nodes / 90 edges, post-new-law). Sim reads this directly.
+- [`../system-map.md`](../system-map.md) — schema + Mermaid diagrams + Sim-use examples
+- [`../law-diff.md`](../law-diff.md) (also useful here) — Sim policy-lever cards
+
 ## What's in this folder
 
 Two views, four files:
@@ -66,7 +90,7 @@ A single 27-actor × 40-activity matrix is unreadable. Splitting by layer makes 
 
 ## Where the 20% gap is
 
-Cells we couldn't fill confidently:
+The gap has narrowed since [`../numbers.md`](../numbers.md) and [`../system-map.json`](../system-map.json) consolidated knowledge across sources — but the verification issues (#4, #5, #6, #14, #15) remain open. Cells we still couldn't fill confidently:
 
 1. **Trepça lead-battery recycling** — operating status unknown (issue #5).
 2. **DRS launch** — planned January 2025; current status unverified (issue #4).
@@ -80,9 +104,9 @@ These all deserve a follow-up pass once verification issues close.
 
 ## How to use this
 
-- **For Sim team:** start with [`recommendations.md`](recommendations.md). Each row is a card; the columns tell you which actor needs to be moved for the card to play.
-- **For research team:** [`operational.md`](operational.md) shows where the dispute is now; [`policy.md`](policy.md) shows where reforms are queued; [`enforcement.md`](enforcement.md) shows why nothing sticks.
-- **For Reporter app team:** [`enforcement.md`](enforcement.md) row "Receive citizen reports" + the dossier's note on inspector understaffing tells you the gap your app could fill.
+- **For Sim team:** start with [`recommendations.md`](recommendations.md) (each row is a card; columns tell you which actor must be moved). Then load [`../system-map.json`](../system-map.json) as the runtime graph, and treat [`../law-diff.md`](../law-diff.md) as the policy-lever deck — each of the 13 dimensions is a candidate card.
+- **For research team:** [`operational.md`](operational.md) shows where the dispute is now; [`policy.md`](policy.md) shows where reforms are queued; [`enforcement.md`](enforcement.md) shows why nothing sticks. Cross-reference [`../timeline.md`](../timeline.md) for chronology, [`../numbers.md`](../numbers.md) for canonical figures, and [`../tensions.md`](../tensions.md) for what's contested across sources.
+- **For Reporter app team:** [`enforcement.md`](enforcement.md) row 12 PLUS the new "structured citizen reports" row (post-update) tell you the gap your app could fill — inspector understaffing is the dossier's headline. Pair with [`../enrichment-summary-dyvo-plastic.md`](../enrichment-summary-dyvo-plastic.md) §3 for the citizen-perception baseline you'd be moving.
 
 ---
 

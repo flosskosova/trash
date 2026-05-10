@@ -1,107 +1,101 @@
-# Phase Tracker
+# Project Roadmap
 
-Hackathon-style checklist for the TrashFromSpace build. Update this file as phases complete. Each phase has the README.md section it corresponds to + estimated effort + concrete "done when" criteria.
+Six-phase roadmap for the TrashFromSpace build. Reframed 2026-05-10 from a setup-first technical phasing to a known-sites-first project phasing — start with what we already know exists, validate the pipeline, then expand.
 
-## Phase 1 — Set up access · *1 evening*
-README: §"Phase 1: Set up access"
-
-- [ ] Copernicus Data Space Ecosystem account registered + email confirmed
-- [ ] Python 3.10+ installed
-- [ ] `scripts/setup.sh` run successfully (venv + dependencies installed)
-- [ ] `openeo.connect().authenticate_oidc()` succeeds and prints account info
-
-**Done when:** you can run a Python REPL, import `openeo`, and successfully authenticate against Copernicus.
+The README's technical phases (download → indices → classify → change-detect → publish) are *substeps within* this project roadmap, not the roadmap itself.
 
 ---
 
-## Phase 2 — Define Area of Interest · *1 evening*
-README: §"Phase 2: Define the Area of Interest"
+## Phase 1 — Known-site time-lapse · *1-2 weekends*
 
-- [ ] Decided whether to start with `aoi/pristina_city.geojson` (narrow) or `aoi/pristina_region.geojson` (wider)
-- [ ] If neither fits, drew custom polygon at [geojson.io](https://geojson.io) and saved to `aoi/`
-- [ ] Polygon visually verified against OpenStreetMap basemap
+> The killer demo. Start here.
 
-**Done when:** you have a single GeoJSON polygon you're confident covers the area you want to analyze.
+**Goal:** generate animated time-lapses (GIF + MP4) of every known waste site in Kosovo using Sentinel-2 imagery from 2017 to present. Publish as an HTML page anyone can scroll through.
 
----
+See [`docs/PHASE1-PLAN.md`](docs/PHASE1-PLAN.md) for step-by-step build plan.
 
-## Phase 3 — Download a single scene · *1 evening*
-README: §"Phase 3: Download a single Sentinel-2 scene"
+**Why first:** skips the classification problem (we already know these are waste sites). Establishes the data pipeline (auth + download + composite). Validates that Sentinel-2 actually shows what we expect. Produces a dramatic visual deliverable for hackathon presentation / press / pitching.
 
-- [ ] Code in README §3 runs end-to-end against your AOI
-- [ ] `data/pristina_composite.tif` exists, is non-zero size
-- [ ] RGB sanity-check displays a recognizable image (Pristina city visible as urban patch; Mirash visible as light patch ~10km west)
+**Done when:**
+- [ ] Coordinates verified for all 14 sites in `known-sites.geojson` (`coords_verified: true`)
+- [ ] Per-site bounding boxes (~2km × 2km) generated
+- [ ] Time-series imagery downloaded for 2017-now per site (~60 monthly composites each)
+- [ ] Animated GIF + MP4 generated per site
+- [ ] `docs/index.html` lists all sites with embedded animations + descriptions
+- [ ] Mirash's "landfill lake" filling visibly tracks on NDWI in animation
 
-**Done when:** you can produce a fresh monthly composite GeoTIFF for your AOI on demand.
-
-**Common gotchas:**
-- All scenes are too cloudy → raise `max_cloud_cover` to 40 or extend `temporal_extent`
-- AOI too large → openEO timeout or quota issues; trim to one municipality first
-- Authentication expired → re-run `authenticate_oidc()`
+**Killer demo target:** Mirash 2017→2026 with NDWI overlay, 8 seconds, lake filling visibly.
 
 ---
 
-## Phase 4 — Compute spectral indices · *1-2 evenings*
-README: §"Phase 4: Compute spectral indices"
+## Phase 2 — Spectral fingerprint of known sites · *1 weekend*
 
-- [ ] NDVI computed and saved as a band
-- [ ] NDWI computed and saved as a band
-- [ ] BSI computed and saved as a band
-- [ ] `data/pristina_indices.tif` exists with 3 bands
-- [ ] At least one index visualized (e.g., NDVI as heatmap) — Mirash visible as low-NDVI patch
+**Goal:** for each site at each timestamp, compute NDVI/NDWI/BSI and plot the indices over time. Identify "what does an active landfill look like spectrally" so we can search for unknown sites that match.
 
-**Done when:** you have a 3-band index raster and can visualize each index for sanity-check.
+**Why second:** uses the data already pulled in Phase 1; converts pretty animations into quantified analysis. Required input for Phase 4.
 
----
-
-## Phase 5 — First-pass classifier (rule-based) · *1-2 evenings*
-README: §"Phase 5: First-pass classifier"
-
-- [ ] Rule-based candidate mask implemented (`(bsi > 0.1) & (ndvi < 0.2) & (ndwi < 0.0)` or similar)
-- [ ] Urban areas masked out (OSM built-up extract or Global Human Settlement Layer)
-- [ ] Candidate sites extracted as GeoJSON polygons
-- [ ] **Stratified manual review** — 50 candidate sites labeled in Google Earth historical imagery
-- [ ] True-positive rate computed (target: > 50%)
-
-**Done when:** you have a labeled candidate set with a documented true-positive rate. If TPR < 50%, iterate on the rule before moving on.
+**Done when:**
+- [ ] NDVI/NDWI/BSI computed for every Phase 1 timestamp at every site
+- [ ] Per-site time-series plots saved as PNGs
+- [ ] Median spectral signature documented per site type (sanitary landfill / non-sanitary / recycling facility / composting)
+- [ ] Outliers / anomalies flagged (e.g., a site whose NDWI jumped in a single month)
 
 ---
 
-## Phase 6 — Change detection · *2-3 evenings*
-README: §"Phase 6: Change detection"
+## Phase 3 — Change quantification · *1 weekend*
 
-- [ ] Pipeline runnable for two distinct months
-- [ ] Per-site time-series store (one record per site per month)
-- [ ] Area-change calculation (% change in mask pixels within site bounding box)
-- [ ] Growth alert rule (e.g., > 20% area increase month-over-month)
-- [ ] New-site alert (candidate present in month N but not month N-1)
+**Goal:** extract numerical change metrics per site over time — area-of-disturbance, leachate-lake volume estimates, growth rates.
 
-**Done when:** running the pipeline for a new month produces a list of "growing" + "new" sites that's usable for downstream alerts.
+**Why third:** quantifies what was qualitative in Phase 1. Outputs feed into the Sim's calibration data and into the validation phase.
 
----
-
-## Phase 7 — Validate against ground truth · *ongoing*
-README: §"Phase 7: Validate against ground truth"
-
-- [ ] AMMK official register obtained (or its Pristina-region subset)
-- [ ] Confusion matrix built: candidates ∩ AMMK / candidates - AMMK / AMMK - candidates
-- [ ] At least 5 candidate-only sites field-validated by a volunteer with a phone
-- [ ] At least 5 AMMK-only sites checked at higher resolution (Google Earth historical) for whether they're below Sentinel-2 resolution
-
-**Done when:** you can publish the diff between your map and AMMK's list with confidence in both directions.
+**Done when:**
+- [ ] Per-site disturbance-area time series (m² per timestamp)
+- [ ] Mirash leachate-lake area + volume estimates over time (validates the "1m/year rise" claim from dossier)
+- [ ] Annual growth-rate per site
+- [ ] Outputs joined back into `known-sites.geojson` as `change_metrics` properties
 
 ---
 
-## Phase 8 — Publish · *1-2 weekends*
-README: §"Phase 8: Publish"
+## Phase 4 — Candidate search · *2 weekends*
 
-- [ ] Folium map generation script working
-- [ ] `docs/index.html` regenerates from a single command
-- [ ] GitHub Pages enabled on the `flosskosova/trash` repo (path: `TrashFromSpace/docs/`) or static map hosted elsewhere
-- [ ] Map URL public and shareable
-- [ ] At least one external person has loaded the map and given feedback
+**Goal:** apply the spectral fingerprint from Phase 2 to the broader Pristina-region AOI. Identify candidates that match the fingerprint but aren't on the known list.
 
-**Done when:** there's a public URL where anyone can view the candidate-sites map, and the URL updates when the pipeline re-runs.
+**Why fourth:** can't search effectively until we know what to search for. This is when the original README's Phase 5 (rule-based classifier) becomes useful.
+
+**Done when:**
+- [ ] Rule mask applied to Pristina-region AOI
+- [ ] Urban areas filtered out (OSM built-up extract or Global Human Settlement Layer)
+- [ ] Candidate list extracted as GeoJSON polygons
+- [ ] At least 50 candidates labeled via stratified manual review (true positive / construction / quarry / agricultural / other)
+- [ ] True-positive rate documented (target: >50%)
+
+---
+
+## Phase 5 — Validation against AMMK · *ongoing*
+
+**Goal:** cross-reference candidates with AMMK's official 458-site illegal-dumpsite register (and Let's Do It Kosovo's competing 500+ count).
+
+**Why fifth:** validation only matters once we have candidates. This is the phase that produces a publishable diff.
+
+**Done when:**
+- [ ] AMMK Pristina-region subset obtained (see primary-source audit issue #18)
+- [ ] Confusion matrix built: candidates ∩ AMMK / candidates − AMMK / AMMK − candidates
+- [ ] At least 5 candidate-only sites field-validated (volunteer with phone)
+- [ ] At least 5 AMMK-only sites checked at higher res (Google Earth historical) — likely below Sentinel-2 resolution
+
+---
+
+## Phase 6 — Publish · *1-2 weekends*
+
+**Goal:** public web map combining the known-site animations (Phase 1), the spectral fingerprints (Phase 2), the change metrics (Phase 3), the candidates (Phase 4), and the AMMK validation (Phase 5).
+
+**Why last:** brings everything together. By this point the underlying methodology is solid; this phase is presentation.
+
+**Done when:**
+- [ ] Folium map at `docs/index.html` with known sites + candidates layered
+- [ ] Per-site detail page with embedded animation + spectral plots
+- [ ] GitHub Pages enabled (`flosskosova/trash` repo, `TrashFromSpace/docs/` path) or static hosting at `quarterly.systems/trashfromspace`
+- [ ] Map auto-regenerated monthly via GitHub Actions cron
 
 ---
 
@@ -109,20 +103,20 @@ README: §"Phase 8: Publish"
 
 Listed in README §"What to build next, if v1 works". Not blocking the v1 ship.
 
-- [ ] Sentinel-1 SAR integration (cloud-penetrating)
-- [ ] Landsat thermal (Mirash-specific methane/decomposition heat)
+- [ ] Sentinel-1 SAR integration (cloud-penetrating, year-round change detection)
+- [ ] Landsat thermal (Mirash-specific methane / decomposition heat anomaly)
 - [ ] Deep learning classifier (AerialWaste fine-tune)
-- [ ] **Cross-reference HackTheTrash citizen reports against satellite candidates** — see `../hackthetrash/` for the citizen reporting platform
-- [ ] Sentinel-5P TROPOMI methane plume detection
-- [ ] One-off VHR imagery (WorldView-3) for top-priority sites
+- [ ] **Cross-reference HackTheTrash citizen reports against satellite candidates** — see `../hackthetrash/`
+- [ ] Sentinel-5P TROPOMI methane plume detection (Mirash is a documented major source)
+- [ ] One-off VHR imagery (WorldView-3) for top-priority sites (~$10-30/km²)
 
 ---
 
 ## Status snapshot
 
-**Last updated:** [date]
-**Current phase:** [phase]
-**Active blockers:** [list]
-**Next milestone:** [target date + scope]
+**Last updated:** 2026-05-10
+**Current phase:** Pre-Phase 1 (scaffolding ready, Phase 1 work hasn't started)
+**Active blockers:** none — Copernicus account creation + Phase 1 plan ready to start
+**Next milestone:** complete Phase 1 known-site time-lapse — target 1-2 weekends from kickoff
 
 Update this section when phases complete.

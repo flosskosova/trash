@@ -2,6 +2,8 @@
 
 > A scrollable D3.js timeline visualization of the December 2024 – June 2025 Pastrimi-Komuna regulation crisis. 11 events, click any dot for the full account.
 
+![Pristina Waste Crisis interactive timeline — 11 events from Dec 2024 to Jun 2025, color-coded by type](../../screenshots/waste-timeline.png)
+
 ## Live app
 
 **[vibes.diy/vibe/bestboy/pristina-waste-crisis](https://vibes.diy/vibe/bestboy/pristina-waste-crisis/)**

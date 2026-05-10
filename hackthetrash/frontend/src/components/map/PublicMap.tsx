@@ -92,6 +92,16 @@ export default function PublicMap() {
   const flyTarget: [number, number] | null =
     flyLat && flyLng ? [Number(flyLat), Number(flyLng)] : null;
   const highlightId = params.get("id");
+  const justSubmitted = params.get("just") === "1";
+
+  // Toast banner shown right after a successful submission. Auto-fades after
+  // ~6s; the URL is left intact so a refresh re-shows it (cheap + obvious).
+  const [showToast, setShowToast] = useState(justSubmitted);
+  useEffect(() => {
+    if (!justSubmitted) return;
+    const t = setTimeout(() => setShowToast(false), 6000);
+    return () => clearTimeout(t);
+  }, [justSubmitted]);
 
   const load = () => {
     fetch(`${API_URL}/api/reports`)
@@ -129,6 +139,21 @@ export default function PublicMap() {
 
   return (
     <div className="relative h-full w-full">
+      {showToast && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] bg-emerald-600 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 max-w-[90%]">
+          <span className="text-2xl">✅</span>
+          <div>
+            <div className="font-semibold text-sm">Report logged</div>
+            <div className="text-xs opacity-90">Authorities can now see this on the public map.</div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowToast(false)}
+            className="ml-2 text-white/70 hover:text-white text-lg leading-none"
+            aria-label="Dismiss"
+          >×</button>
+        </div>
+      )}
       <MapContainer
         center={center}
         zoom={initialZoom}
@@ -158,6 +183,13 @@ export default function PublicMap() {
               key={r.id}
               position={[r.latitude, r.longitude]}
               icon={colorIcon(STATUS_COLORS[r.status] ?? "#999")}
+              ref={(m) => {
+                // Auto-open the popup on the freshly submitted report so the
+                // user immediately sees confirmation + details.
+                if (isHighlight && m) {
+                  setTimeout(() => m.openPopup(), 600);
+                }
+              }}
             >
               {/* Hover preview tooltip - shows the first photo when the
                   user mouses over the marker. Click still opens the

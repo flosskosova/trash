@@ -16,7 +16,7 @@ See [`docs/PHASE1-PLAN.md`](docs/PHASE1-PLAN.md) for step-by-step build plan.
 
 **Why first:** skips the classification problem (we already know these are waste sites). Establishes the data pipeline (auth + download + composite). Validates that Sentinel-2 actually shows what we expect. Produces a dramatic visual deliverable for hackathon presentation / press / pitching.
 
-### 🟡 In progress on `feat/timelapse` (Barlli)
+### ✅ Done for Mirash (merged via PR #46)
 
 Barlli took a **depth-first approach** — exhaust one site (Mirash) across Phases 1, 2, and 3 before scaling to the other 13. Two iterations shipped on the `feat/timelapse` branch:
 
@@ -26,14 +26,14 @@ Barlli took a **depth-first approach** — exhaust one site (Mirash) across Phas
 **Tooling note:** pure stdlib + numpy + Pillow + matplotlib. No GDAL, no rasterio, no API key. Data via Microsoft Planetary Computer STAC. ~90s per run.
 
 **Done when:**
-- [x] Bounding box generated for Mirash *(both 2km and 800m variants on `feat/timelapse`)*
-- [x] Time-series imagery for Mirash 2017-2026 (14 + 35 scenes) *(`feat/timelapse`)*
-- [x] Animated GIFs generated for Mirash (true-colour + NDVI + BSI) *(`feat/timelapse`)*
+- [x] Bounding box generated for Mirash *(both 2km and 800m variants, merged)*
+- [x] Time-series imagery for Mirash 2017-2026 (14 + 35 scenes) *(merged)*
+- [x] Animated GIFs generated for Mirash (true-colour + NDVI + BSI) *(merged)*
 - [ ] Coordinates verified for the other 13 sites in `known-sites.geojson`
 - [ ] Time-series imagery downloaded for the other 13 sites
 - [ ] Animated GIFs generated for the other 13 sites
 - [ ] `docs/index.html` lists all sites with embedded animations
-- [ ] Mirash work merged from `feat/timelapse` to `main`
+- [x] Mirash work merged from `feat/timelapse` to `main` (PR #46)
 
 **Original killer demo target:** Mirash 2017→2026 with NDWI overlay, lake filling visibly.
 **What Barlli actually shipped:** quantitative finding documented in `REPORT.md` — *NDVI inside the 400m ROI fell from +0.258 (2017) to +0.060 (2026), a **77% collapse**, with a step-change visible across 2021.* That's a stronger demo than the original target.
@@ -46,13 +46,13 @@ Barlli took a **depth-first approach** — exhaust one site (Mirash) across Phas
 
 **Why second:** uses the data already pulled in Phase 1; converts pretty animations into quantified analysis. Required input for Phase 4.
 
-### 🟡 Done for Mirash on `feat/timelapse`
+### ✅ Done for Mirash on main (merged via PR #46)
 
 Iter-02 has NDVI + BSI computed per scene. Time-series in `landfill-timelapse/iterations/02-muni-bsi/waste_area.csv` (35 rows). Headline plot in `waste_area_chart.png`. Analysis in `REPORT.md`.
 
 **Done when:**
-- [x] NDVI computed for Mirash, all 35 timestamps *(`feat/timelapse`)*
-- [x] BSI computed for Mirash, all 35 timestamps *(`feat/timelapse`)*
+- [x] NDVI computed for Mirash, all 35 timestamps *(merged)*
+- [x] BSI computed for Mirash, all 35 timestamps *(merged)*
 - [x] Per-site time-series plot saved as PNG *(`waste_area_chart.png`)*
 - [x] Spectral fingerprint findings documented for one site type *(landfill: NDVI <0.10 + BSI ≈ +0.10 saturated)*
 - [x] Outlier identified: 2021 step-change documented as needing ground-truth research
@@ -68,7 +68,7 @@ Iter-02 has NDVI + BSI computed per scene. Time-series in `landfill-timelapse/it
 
 **Why third:** quantifies what was qualitative in Phase 1. Outputs feed into the Sim's calibration data and into the validation phase.
 
-### 🟡 Done for Mirash on `feat/timelapse`
+### ✅ Done for Mirash on main (merged via PR #46)
 
 Headline metrics from `REPORT.md`:
 - Mean NDVI inside 400m ROI: **+0.258 (2017) → +0.060 (2026), −77%**
@@ -78,7 +78,7 @@ Headline metrics from `REPORT.md`:
 Caveat: 400m ROI saturates from 2022. Iter 03 with wider ROI is on Barlli's "next steps" list.
 
 **Done when:**
-- [x] Per-scene disturbance-area time series for Mirash (35 rows, m² per timestamp) *(`feat/timelapse`)*
+- [x] Per-scene disturbance-area time series for Mirash (35 rows, m² per timestamp) *(merged)*
 - [x] Annual mean NDVI + annual mean BSI for Mirash *(`waste_area.csv`)*
 - [x] Step-change detection (the 2021 break point) *(documented in `REPORT.md`)*
 - [ ] Same metrics for the other 13 sites
@@ -145,12 +145,12 @@ Listed in README §"What to build next, if v1 works". Not blocking the v1 ship.
 
 ## Status snapshot
 
-**Last updated:** 2026-05-10 (Sunday afternoon, hackathon weekend)
-**Current phase:** Phase 1-3 substantially done **for Mirash only** on `feat/timelapse` branch (Barlli, depth-first). Remaining work is breadth — applying same approach to the other 13 sites.
-**Active blockers:** none — Barlli's tooling is reproducible (pure stdlib + numpy + Pillow + matplotlib, no API key, ~90s/run, MPC STAC). Other sites can be added by re-running with new `--iter` argument.
+**Last updated:** 2026-05-10 (Sunday afternoon, hackathon weekend, post-merge)
+**Current phase:** Phase 1-3 done **for Mirash only**, now on `main` (merged via PR #46). Remaining work is breadth — applying the same approach to the other 13 sites.
+**Active blockers:** none — Barlli's tooling is reproducible and on main: `landfill-timelapse/build_timelapse.py` (pure stdlib + numpy + Pillow + matplotlib, no API key, ~90s/run, MPC STAC). Other sites can be added by re-running with a new `--iter` argument.
 **Next milestone:**
-- Short-term: merge `feat/timelapse` to main once Barlli's at a stopping point
-- Medium-term: extend iter-03 to wider ROI + cover other sites
+- Short-term: extend iter-03 to wider ROI (post-2022 saturation fix) + start covering the other 13 sites
+- Medium-term: spectral fingerprinting of non-landfill site types (recycling facilities, composting plant) so candidate-search (Phase 4) has multi-class targets
 - Open question: whether to publish Barlli's findings *now* (Mirash NDVI -77% is publishable on its own) or wait for breadth
 
 Update this section when phases complete.

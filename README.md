@@ -94,6 +94,8 @@ Not yet merged to main; live development on the feature branch.
 
 A scrollable D3.js timeline of the December 2024 – June 2025 Pastrimi-Komuna regulation crisis. 11 curated events, color-coded by type (regulation / operational / political / court), click any dot for the full account.
 
+![Pristina Waste Crisis interactive timeline — 11 events from Dec 2024 to Jun 2025, color-coded by type](screenshots/waste-timeline.png)
+
 **Live app:** [vibes.diy/vibe/bestboy/pristina-waste-crisis](https://vibes.diy/vibe/bestboy/pristina-waste-crisis/)
 
 Built with **[Vibes DIY](https://vibes.diy/)**. Source archived at [`dossier/timeline-app/App.jsx`](dossier/timeline-app/App.jsx) for forking. Companion to [`dossier/timeline.md`](dossier/timeline.md), focused specifically on the regulation-crisis arc.
@@ -123,7 +125,7 @@ Contributions welcome on any of these — see issue thread for what to verify an
 
 ## The hackathon — what actually happened
 
-**Saturday, May 9, 2026** — kickoff at Prishtina Hackerspace + remote on Mattermost. Token distribution via [vibetoken.lol/trash-please](https://vibetoken.lol/trash-please) for free Vibes/Claude tokens. Initial team breaks: research, app build, data extraction. By end of day: HackTheTrash MVP shipping; Barlli's enrichment material extracted into 5 structured summaries; original dossier landed.
+**Saturday, May 9, 2026** — kickoff at Prishtina Hackerspace + remote on Mattermost. Tokens for the weekend were sponsored by **[Vibes DIY](https://vibes.diy/)**. Initial team breaks: research, app build, data extraction. By end of day: HackTheTrash MVP shipping; Barlli's enrichment material extracted into 5 structured summaries; original dossier landed.
 
 **Sunday, May 10, 2026** — integration day. HackTheTrash hardens auth + admin panel + i18n. TrashFromSpace scaffolds + Phase 1 starts. Interactive map UI takes shape on a feature branch. Dossier package matures to 14 cross-linked files. Verification issues opened. RACI matrices distilled into a card deck for readability.
 

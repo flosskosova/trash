@@ -5,6 +5,10 @@
 ![Status](https://img.shields.io/badge/status-MVP--in--progress-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+| Public map | Photo-first /report | Authority Dashboard |
+|---|---|---|
+| ![Public map](screenshots/HackTheTrash-map.png) | ![Report page](screenshots/HackTheTrash-report.png) | ![Dashboard](screenshots/HackTheTrash-dashboard.png) |
+
 ---
 
 ## 🌍 What is HackTheTrash?

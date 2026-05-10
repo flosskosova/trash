@@ -115,7 +115,7 @@ Contributions welcome on any of these — see issue thread for what to verify an
 | Contributor | What they shipped |
 |---|---|
 | **[sami](https://github.com/samikciku)** (samikciku) | Built HackTheTrash end-to-end: web + mobile + backend + admin + i18n |
-| **K. Mike Merrill** (kmikeym) | Dossier package, RACI/Sim cards, TrashFromSpace scaffold, project framing |
+| **[kmikeym](https://github.com/kmikeym)** | Dossier package, RACI/Sim cards, TrashFromSpace scaffold, project framing |
 | **[Barlli](https://github.com/Barlli)** | Enrichment source documents, Mirash time-lapse pipeline, interactive matrix UI |
 | **[Aldikrasniqi](https://github.com/Aldikrasniqi)** | Interactive map data structures + UI motion library |
 | **[Bleron Limani](https://github.com/bleroni)** (bleroni) | Field photographs of trash containers (Sunny Hill, UÇK Street) |

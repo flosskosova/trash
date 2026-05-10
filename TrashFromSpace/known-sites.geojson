@@ -1,0 +1,269 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "name": "Kosovo known waste sites — Phase 1 starter set",
+    "description": "Point features for known/legal waste-management sites in Kosovo. 7 sanitary landfills + 4 non-sanitary + 3 recycling/processing sites. Coordinates are approximate (city/municipal centers in most cases) and MUST be verified against satellite imagery before downloading time-series data. Phase 1 first task is to refine each coord to the actual site footprint.",
+    "source_dossier": "../dossier/how-trash-works-pristina.md (Part 1: physical system) + ../dossier/enrichment-summary-mazreku-newlaw.md",
+    "snapshot_date": "2026-05-10",
+    "coord_verification": "all features have coords_verified: false — Phase 1 step 1 is to refine"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mirash",
+        "name": "Mirash landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Pristina",
+        "municipality": "Obiliq/Obilic",
+        "size_ha": 7,
+        "annual_intake_t": 160000,
+        "built": "2004-2006",
+        "started_operating": "2006-12",
+        "status": "active_overcapacity",
+        "coords_verified": false,
+        "notes": "On KEK-owned land, former coal pit. ~10km west of Pristina city center. EU-flagged for closure. Documented 'landfill lake' rising 1m/year (good NDWI target). Methane risks. Highest-priority site for Phase 1 demo.",
+        "source_notes": "dossier/how-trash-works-pristina.md Mirash section"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.0697, 42.6857]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "germova",
+        "name": "Gërmova landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Mitrovica",
+        "municipality": "Mitrovica",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Regional sanitary landfill for Mitrovica region. Built 2001-2008 with EU support. Exceeded designed capacity per Prishtina Insight 2025."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.8666, 42.8814]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sferke",
+        "name": "Sferkë landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Pejë/Pec",
+        "municipality": "Pejë",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Regional landfill for Pejë/Pec region."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.2961, 42.6606]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "landovice",
+        "name": "Landovicë landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Prizren",
+        "municipality": "Prizren",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Regional landfill for Prizren region."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.7444, 42.2139]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "velekince",
+        "name": "Velekincë landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Gjilan",
+        "municipality": "Gjilan",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Regional landfill for Gjilan region."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.4694, 42.4647]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "podujeve",
+        "name": "Podujevë landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Podujevë",
+        "municipality": "Podujevë",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Municipal-scale sanitary landfill (one of the 'two additional' beyond the 5 regional sites)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.1928, 42.9097]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dragash",
+        "name": "Dragash landfill",
+        "type": "sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Dragash",
+        "municipality": "Dragash",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Municipal-scale sanitary landfill (one of the 'two additional' beyond the 5 regional sites)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.6536, 42.0625]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "istog",
+        "name": "Istog landfill (non-sanitary)",
+        "type": "non_sanitary_landfill",
+        "operator": "KLMC",
+        "region": "Istog",
+        "municipality": "Istog",
+        "status": "active_non_sanitary",
+        "coords_verified": false,
+        "notes": "One of the four non-sanitary sites (no leachate treatment, no integrated env permit)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.4906, 42.7806]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zubin_potok",
+        "name": "Zubin Potok landfill (non-sanitary)",
+        "type": "non_sanitary_landfill",
+        "operator": "KLMC",
+        "region": "North Mitrovica",
+        "municipality": "Zubin Potok",
+        "status": "active_non_sanitary",
+        "coords_verified": false,
+        "notes": "One of the four non-sanitary sites."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.6939, 42.9133]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "leposaviq",
+        "name": "Leposaviq landfill (non-sanitary)",
+        "type": "non_sanitary_landfill",
+        "operator": "KLMC",
+        "region": "North Mitrovica",
+        "municipality": "Leposaviq",
+        "status": "active_non_sanitary",
+        "coords_verified": false,
+        "notes": "One of the four non-sanitary sites."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.8044, 43.1019]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zvecan",
+        "name": "Zveçan landfill (non-sanitary)",
+        "type": "non_sanitary_landfill",
+        "operator": "KLMC",
+        "region": "North Mitrovica",
+        "municipality": "Zveçan",
+        "status": "active_non_sanitary",
+        "coords_verified": false,
+        "notes": "One of the four non-sanitary sites."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.8336, 42.9122]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rec_kos",
+        "name": "Rec-Kos recycling facility",
+        "type": "recycling_facility",
+        "operator": "private",
+        "region": "Pristina",
+        "municipality": "Fushë Kosova",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "The largest recycling firm in Fushë Kosova per Prishtina Insight 2023. Buyers of materials from informal RAE scavengers. Steel exports to Turkey + Greece. Coords highly approximate."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.0894, 42.6647]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trepca_lead",
+        "name": "Trepça lead battery recycling",
+        "type": "recycling_facility",
+        "operator": "Trepça (state-owned mining complex)",
+        "region": "Mitrovica",
+        "municipality": "Mitrovica",
+        "status": "active_unverified",
+        "coords_verified": false,
+        "notes": "Cited by INDEP/KAS as Kosovo's working circular-economy example for lead batteries. Operating status is verification issue #5. Located within broader Trepça mining complex (60M tonnes accumulated mining waste — the complex itself is also imageable)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [20.8917, 42.8636]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pristina_composting",
+        "name": "Pristina composting plant",
+        "type": "composting_plant",
+        "operator": "Komuna e Prishtinës (assumed)",
+        "region": "Pristina",
+        "municipality": "Pristina",
+        "status": "active",
+        "coords_verified": false,
+        "notes": "Mentioned in INDEP/KAS doc §5.2 — handles green/garden waste. Specific operator + capacity not stated. Coords highly approximate (placed near Pristina city center)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.1655, 42.6629]
+      }
+    }
+  ]
+}

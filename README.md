@@ -62,9 +62,13 @@ A free-Sentinel-2 pipeline for monitoring waste accumulations across Kosovo. 10m
 - **[`docs/PHASE1-PLAN.md`](TrashFromSpace/docs/PHASE1-PLAN.md)** — step-by-step Phase 1 build plan
 - **Google Earth aerial views:** [Landfill in Landovicë](https://earth.google.com/web/search/42%2e255789,+20%2e700171/@42.25626622,20.70126828,393.82371163a,1008.0013057d,35y,0h,0t,0r/data=Cj4iJgokCbt39kAkVkVAEY08Eo0XVEVAGYaQ4fSiFTVAIX-G4bO0CjVAKhAIARIKMjAxMy0wNC0yNRgBQgIIAToDCgEwQgIIAEoNCP___________wEQAA?authuser=0) · [Mirash](https://earth.google.com/web/search/Deponia+e+mbeturinave+komunale,+Pristina/@42.66390519,21.06681019,524.32853775a,3037.28792639d,35y,0h,0t,0r/data=Cj4iJgokCQ0SjoCrV0VAETxAka2ZUEVAGRFTFJf_GzVAIVsjTeNJ9jRAKhAIARIKMjAyNS0wNy0xORgBQgIIAToDCgEwQgIIAEoNCP___________wEQAA?authuser=0)
 
-#### Active build on [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) (Barlli — depth-first on Mirash)
+#### Mirash deep-dive — [`landfill-timelapse/`](landfill-timelapse/) (Barlli — depth-first, merged via PR #46)
 
-Two iterations shipped on the branch, with substantive findings:
+![Mirash landfill 2017-2026 Sentinel-2 time-lapse — 35 frames, 800m muni-only AOI, true-colour](landfill-timelapse/gifs/02-muni-bsi__truecolor.gif)
+
+*Mirash 2017 → April 2026, monthly Sentinel-2 composites. The mound visibly grows north + east; the new groundwater pit appears NW from ~2020.*
+
+Two iterations shipped, with substantive findings:
 
 - **Iter 01** — 14 frames over 2017-2026, 2km AOI, true-colour + NDVI animations
 - **Iter 02** — 35 frames, 800m muni-only AOI, true-colour + NDVI + BSI animations, full quantification
@@ -75,9 +79,9 @@ Two iterations shipped on the branch, with substantive findings:
   - **Water-vs-waste discrimination** working via BSI — a new groundwater-filled pit appeared NW of the muni pin from ~2020 onwards
 - **Tooling note:** pure stdlib + numpy + Pillow + matplotlib. No GDAL, no API key. Data via Microsoft Planetary Computer STAC. ~90s per run.
 
-### 🗺 [`trash-map/`](https://github.com/flosskosova/trash/tree/feat/raci-matrix/trash-map) (on `feat/raci-matrix` branch) — the interactive viewer
+### 🗺 [`trash-map/`](trash-map/) — the interactive viewer
 
-An interactive web app that ingests the dossier and renders it as an explorable system map. Built by Barlli + Aldikrasniqi on `feat/raci-matrix`.
+An interactive web app that ingests the dossier and renders it as an explorable system map. Built by Barlli + Aldikrasniqi (merged via PR #46 alongside the timelapse work).
 
 ![Pristina Trash System actor map — interactive viewer with node-type + edge-type legend, scenarios panel, and minimap](screenshots/actormap.png)
 
@@ -88,8 +92,6 @@ An interactive web app that ingests the dossier and renders it as an explorable 
 - Edge types: Money flow / Authority / Political / Oversight / Operational
 - Scenarios panel ("KLMC raises landfill fees 30%", "Municipality regains billing authority")
 - Motion library for transitions (not plain CSS)
-
-Not yet merged to main; live development on the feature branch.
 
 ### 📅 [`dossier/timeline-app/`](dossier/timeline-app/) — the interactive crisis timeline
 
@@ -105,30 +107,9 @@ Built with **[Vibes DIY](https://vibes.diy/)**. Source archived at [`dossier/tim
 
 Substantive work-in-progress lives on these branches. The READMEs here will be updated as each one merges to main.
 
-### 🛰 [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) — Mirash satellite analysis (Barlli)
-
-Phases 1-3 of TrashFromSpace done depth-first for Mirash. This branch is built on top of `feat/raci-matrix` and contains everything from it plus the satellite work.
-
-![Mirash landfill 2017-2026 Sentinel-2 time-lapse — 35 frames, 800m muni-only AOI, true-colour](https://raw.githubusercontent.com/flosskosova/trash/feat/timelapse/landfill-timelapse/gifs/02-muni-bsi__truecolor.gif)
-
-*Mirash 2017 → April 2026, monthly Sentinel-2 composites. The mound visibly grows north + east; the new groundwater pit appears NW from ~2020.*
-
-- `landfill-timelapse/iterations/01-midpoint-2km/` — initial 14-frame time-lapse (RGB + NDVI)
-- `landfill-timelapse/iterations/02-muni-bsi/` — 35-frame quantified analysis with **NDVI -77% headline finding**
-- `landfill-timelapse/REPORT.md` — 213-line analysis, **2021 step-change** identified
-- `build_timelapse.py` — pure stdlib + numpy + Pillow + matplotlib, no API key, ~90s/run
-
-### 🗺 [`feat/raci-matrix`](https://github.com/flosskosova/trash/tree/feat/raci-matrix) — interactive actor-map UI (Barlli + Aldikrasniqi)
-
-Vite + React app at `trash-map/` that ingests the dossier as a normalized `dossier.json` ("single source of truth") and renders it as an explorable system map. See [`screenshots/actormap.png`](screenshots/actormap.png) for the live UI.
-
-- Collapsible stage row groups
-- Rich actor preview panels with categorised edges per cell
-- Motion library for transitions
-
 ### 🗺 [`feat/interactive-map`](https://github.com/flosskosova/trash/tree/feat/interactive-map) — data structures scaffold (Aldikrasniqi)
 
-Earlier version of the trash-map app focused on the data layer. Comprehensive structures for acronyms, edges, nodes, levers, tensions, recommendations, numerical figures. This branch is the base `feat/raci-matrix` was built on; will likely be subsumed when `feat/timelapse` merges (which contains both).
+Earlier version of the trash-map app focused on the data layer. Comprehensive structures for acronyms, edges, nodes, levers, tensions, recommendations, numerical figures. This branch is the base `feat/raci-matrix` was built on. May be effectively subsumed by the merged `trash-map/` work or hold remaining unmerged improvements — review when reactivated.
 
 ---
 
@@ -140,7 +121,7 @@ Earlier version of the trash-map app focused on the data layer. Comprehensive st
 
 **For Sim builders** → start at [`dossier/sim-cards.md`](dossier/sim-cards.md) → then [`dossier/system-map.json`](dossier/system-map.json) (the data model the Sim reads directly) → then [`dossier/law-diff.md`](dossier/law-diff.md) (every diff is a player-action card).
 
-**For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then read Barlli's [`REPORT.md`](https://github.com/flosskosova/trash/blob/feat/timelapse/landfill-timelapse/REPORT.md) on the `feat/timelapse` branch (Mirash NDVI -77% over 9 years, with a step-change in 2021).
+**For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then read Barlli's [`landfill-timelapse/REPORT.md`](landfill-timelapse/REPORT.md) (Mirash NDVI -77% over 9 years, with a step-change in 2021).
 
 ## Open verification questions
 

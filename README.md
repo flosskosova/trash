@@ -109,6 +109,10 @@ Substantive work-in-progress lives on these branches. The READMEs here will be u
 
 Phases 1-3 of TrashFromSpace done depth-first for Mirash. This branch is built on top of `feat/raci-matrix` and contains everything from it plus the satellite work.
 
+![Mirash landfill 2017-2026 Sentinel-2 time-lapse — 35 frames, 800m muni-only AOI, true-colour](https://raw.githubusercontent.com/flosskosova/trash/feat/timelapse/landfill-timelapse/gifs/02-muni-bsi__truecolor.gif)
+
+*Mirash 2017 → April 2026, monthly Sentinel-2 composites. The mound visibly grows north + east; the new groundwater pit appears NW from ~2020.*
+
 - `landfill-timelapse/iterations/01-midpoint-2km/` — initial 14-frame time-lapse (RGB + NDVI)
 - `landfill-timelapse/iterations/02-muni-bsi/` — 35-frame quantified analysis with **NDVI -77% headline finding**
 - `landfill-timelapse/REPORT.md` — 213-line analysis, **2021 step-change** identified

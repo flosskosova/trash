@@ -7,7 +7,7 @@
 
 | Public map | Photo-first /report | Authority Dashboard |
 |---|---|---|
-| ![Public map](screenshots/HackTheTrash-map.png) | ![Report page](screenshots/HackTheTrash-report.png) | ![Dashboard](screenshots/HackTheTrash-dashboard.png) |
+| ![Public map](../screenshots/HackTheTrash-map.png) | ![Report page](../screenshots/HackTheTrash-report.png) | ![Dashboard](../screenshots/HackTheTrash-dashboard.png) |
 
 ---
 

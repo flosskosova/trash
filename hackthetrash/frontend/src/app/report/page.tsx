@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import exifr from "exifr";
 import { useI18n } from "@/lib/i18n";
 
 const LocationPicker = dynamic(
@@ -11,11 +12,19 @@ const LocationPicker = dynamic(
 
 const TRASH_TYPES = ["Plastic", "E-waste", "Hazardous", "Construction", "Organic", "Other"];
 
+type ExifFinding = {
+  gps: boolean;
+  takenAt: boolean;
+};
+
 export default function ReportPage() {
   const { t } = useI18n();
 
   const [photos, setPhotos] = useState<File[]>([]);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [coordsFromExif, setCoordsFromExif] = useState(false);
+  const [takenAt, setTakenAt] = useState<Date | null>(null);
+  const [exifFinding, setExifFinding] = useState<ExifFinding | null>(null);
   const [tags, setTags] = useState<string[]>([]);
   const [severity, setSeverity] = useState<"small" | "medium" | "large">("medium");
   const [description, setDescription] = useState("");
@@ -35,8 +44,51 @@ export default function ReportPage() {
   const toggleTag = (tg: string) =>
     setTags((prev) => (prev.includes(tg) ? prev.filter((x) => x !== tg) : [...prev, tg]));
 
-  const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) setPhotos(Array.from(e.target.files).slice(0, 5));
+  const handleFiles = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const files = Array.from(e.target.files).slice(0, 5);
+    setPhotos(files);
+
+    // Parse EXIF from the first file that has any. GPS + DateTimeOriginal
+    // auto-populate the location pin and the "taken at" timestamp so the
+    // user doesn't have to manually drop a pin or remember when they took
+    // the photo. They can still override either one.
+    let gpsHit = false;
+    let dateHit = false;
+    for (const file of files) {
+      try {
+        // One parse with explicit segments. The `pick` filter is intentionally
+        // omitted because picking restricts the returned object even when GPS
+        // and EXIF segments are enabled, which silently drops fields.
+        const data = await exifr.parse(file, {
+          tiff: true,
+          exif: true,
+          gps: true
+        }).catch(() => null);
+        if (!gpsHit && data && data.latitude != null && data.longitude != null) {
+          setCoords({ lat: data.latitude, lng: data.longitude });
+          setCoordsFromExif(true);
+          gpsHit = true;
+        }
+        const when: Date | string | undefined = data?.DateTimeOriginal || data?.CreateDate;
+        if (!dateHit && when) {
+          const d = when instanceof Date ? when : new Date(when);
+          if (!isNaN(d.getTime())) {
+            setTakenAt(d);
+            dateHit = true;
+          }
+        }
+        if (gpsHit && dateHit) break;
+      } catch {
+        // Non-fatal: not all images have EXIF (e.g. screenshots, stripped uploads).
+      }
+    }
+    setExifFinding({ gps: gpsHit, takenAt: dateHit });
+  };
+
+  const clearExifLocation = () => {
+    setCoords(null);
+    setCoordsFromExif(false);
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -54,6 +106,7 @@ export default function ReportPage() {
       fd.append("severity", severity);
       fd.append("description", description);
       fd.append("anonymous", String(anonymous));
+      if (takenAt) fd.append("takenAt", takenAt.toISOString());
 
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/reports`,
@@ -99,6 +152,27 @@ export default function ReportPage() {
             <span key={i} className="text-xs bg-gray-100 px-2 py-1 rounded">{p.name}</span>
           ))}
         </div>
+
+        {exifFinding && (exifFinding.gps || exifFinding.takenAt) && (
+          <div className="mt-3 text-xs bg-emerald-50 border border-emerald-200 rounded p-2 text-emerald-900">
+            <div className="font-semibold mb-1">📷 Read from photo</div>
+            {exifFinding.gps && coords && (
+              <div className="flex items-center justify-between gap-2">
+                <span>📍 Location: {coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</span>
+                <button type="button" onClick={clearExifLocation}
+                  className="text-emerald-700 underline">Override</button>
+              </div>
+            )}
+            {exifFinding.takenAt && takenAt && (
+              <div>🕒 Taken: {takenAt.toLocaleString()}</div>
+            )}
+          </div>
+        )}
+        {exifFinding && !exifFinding.gps && !exifFinding.takenAt && photos.length > 0 && (
+          <div className="mt-3 text-xs bg-amber-50 border border-amber-200 rounded p-2 text-amber-900">
+            No EXIF data found in this photo — please drop a pin or tap &quot;Use my location&quot; below.
+          </div>
+        )}
       </div>
 
       <div>

@@ -37,6 +37,8 @@ type Report = {
   photo_urls?: string[];
   createdAt?: string;
   created_at?: string;
+  takenAt?: string;
+  taken_at?: string;
 };
 
 // Helper: prepend API base to relative photo URLs
@@ -47,6 +49,9 @@ const getPhotos = (r: Report): string[] => r.photoUrls ?? r.photo_urls ?? [];
 
 // Helper: pick createdAt from either field name
 const getCreated = (r: Report): string | undefined => r.createdAt ?? r.created_at;
+
+// Helper: pick takenAt (when the photo was taken, from EXIF) from either field name
+const getTaken = (r: Report): string | undefined => r.takenAt ?? r.taken_at;
 
 // Pristina city centre (used as the default starting view of the map)
 const PRISTINA_CENTER: [number, number] = [42.6629, 21.1655];
@@ -145,6 +150,7 @@ export default function PublicMap() {
         {reports.map((r) => {
           const photos = getPhotos(r);
           const created = getCreated(r);
+          const taken = getTaken(r);
           const isHighlight = r.id === highlightId;
 
           return (
@@ -248,8 +254,17 @@ export default function PublicMap() {
 
                   <div style={{ fontSize: 11, color: "#9CA3AF", marginTop: 6 }}>
                     📍 {r.latitude.toFixed(5)}, {r.longitude.toFixed(5)}
-                    {created && <> · {new Date(created).toLocaleString()}</>}
                   </div>
+                  {taken && (
+                    <div style={{ fontSize: 11, color: "#6B7280", marginTop: 2 }}>
+                      📷 Taken {new Date(taken).toLocaleString()}
+                    </div>
+                  )}
+                  {created && (
+                    <div style={{ fontSize: 11, color: "#9CA3AF", marginTop: 2 }}>
+                      📨 Reported {new Date(created).toLocaleString()}
+                    </div>
+                  )}
                 </div>
               </Popup>
             </Marker>

@@ -13,6 +13,7 @@ export interface Report {
   anonymous: boolean;
   photoUrls: string[];
   createdAt: string;
+  takenAt?: string;
   userId?: string;
 }
 

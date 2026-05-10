@@ -41,7 +41,7 @@ export const getReport = async (req: Request, res: Response) => {
 export const createReport = async (req: Request, res: Response) => {
   try {
     const files = (req.files as Express.Multer.File[]) || [];
-    const { latitude, longitude, severity, description, anonymous } = req.body;
+    const { latitude, longitude, severity, description, anonymous, takenAt } = req.body;
     let tags: string[] = [];
     try { tags = JSON.parse(req.body.tags || "[]"); } catch {}
 
@@ -92,7 +92,8 @@ export const createReport = async (req: Request, res: Response) => {
             : "reported",
       anonymous: anonymous === "true",
       photoUrls: files.map((f) => `/uploads/${f.filename}`),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      takenAt: typeof takenAt === "string" && !isNaN(Date.parse(takenAt)) ? takenAt : undefined
     };
     reportsDB.unshift(report);
     res.status(201).json({ ...report, ai });

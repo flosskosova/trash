@@ -17,7 +17,7 @@ This project exists alongside other civic-tech work — see [civic-tech-preceden
 
 ## What's been built
 
-Three project surfaces, attacking the same problem from different angles:
+Five project surfaces, attacking the same problem from different angles:
 
 ### 🔬 [`dossier/`](dossier/) — the research package
 
@@ -136,7 +136,9 @@ Contributions welcome on any of these — see issue thread for what to verify an
 
 **Saturday, May 9, 2026** — kickoff at Prishtina Hackerspace + remote on Mattermost. Tokens for the weekend were sponsored by **[Vibes DIY](https://vibes.diy/)**. Initial team breaks: research, app build, data extraction. By end of day: HackTheTrash MVP shipping; Barlli's enrichment material extracted into 5 structured summaries; original dossier landed.
 
-**Sunday, May 10, 2026** — integration day. HackTheTrash hardens auth + admin panel + i18n. TrashFromSpace scaffolds + Phase 1 starts. Interactive map UI takes shape on a feature branch. Dossier package matures to 14 cross-linked files. Verification issues opened. RACI matrices distilled into a card deck for readability.
+**Sunday, May 10, 2026** — integration day. HackTheTrash hardens auth + admin panel + i18n + photo-first /report UX with EXIF auto-population. TrashFromSpace scaffolds; Barlli runs Phase 1 depth-first on Mirash and produces the **NDVI -77%** finding + 213-line analysis report. Aldikrasniqi continues evolving the modular-data trash-map; Barlli forks to a matrix-focused variant. Both land on main as siblings (`interactive-map/` and `trash-map/`). Dossier package matures to 14 cross-linked files. Verification issues opened. RACI matrices distilled into a Sim card deck for readability.
+
+**End of weekend** — all feature work merged to main. 48 PRs merged, 6 verification issues open, 3 stale branches deleted. The repo is a clean snapshot of the weekend's output.
 
 ## Contributors
 
@@ -144,10 +146,10 @@ Contributions welcome on any of these — see issue thread for what to verify an
 |---|---|
 | **[sami](https://github.com/samikciku)** (samikciku) | Built HackTheTrash end-to-end: web + mobile + backend + admin + i18n |
 | **[kmikeym](https://github.com/kmikeym)** | Dossier package, RACI/Sim cards, TrashFromSpace scaffold, project framing |
-| **[Barlli](https://github.com/Barlli)** | Enrichment source documents, Mirash time-lapse pipeline, interactive matrix UI |
-| **[Aldikrasniqi](https://github.com/Aldikrasniqi)** | Interactive map data structures + UI motion library |
+| **[Barlli](https://github.com/Barlli)** | Enrichment source documents (5 Albanian + English policy docs), Mirash satellite time-lapse pipeline (`landfill-timelapse/` — NDVI -77% finding, 2021 step-change identified, 213-line `REPORT.md`), matrix-view variant of the trash-map UI |
+| **[Aldikrasniqi](https://github.com/Aldikrasniqi)** | Built `interactive-map/` Vite app: data layer (acronyms / edges / levers / nodes / numbers / recommendations / tensions modules), graph rendering, motion library. Key collaborator on `trash-map/` matrix variant |
 | **[Bleron Limani](https://github.com/bleroni)** (bleroni) | Field photographs of trash containers (Sunny Hill, UÇK Street) |
-| **[Ari Karakushi](https://github.com/Aldikrasniqi)** | Geolocation prompt for the web app |
+| **Ari Karakushi** | Geolocation prompt for the web app |
 
 ## Caveats
 

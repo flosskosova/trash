@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pristina city — narrow AOI",
+        "description": "Pristina municipality bounding box per the spec's starter coords. Use this for first-pass testing; switch to pristina_region.geojson for the wider analysis area.",
+        "source": "TrashFromSpace/README.md Phase 2 — starter coords",
+        "crs": "EPSG:4326"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [21.05, 42.55],
+          [21.30, 42.55],
+          [21.30, 42.75],
+          [21.05, 42.75],
+          [21.05, 42.55]
+        ]]
+      }
+    }
+  ]
+}

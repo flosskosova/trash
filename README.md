@@ -4,8 +4,6 @@ A weekend hackathon at Prishtina Hackerspace, May 9-10, 2026.
 We're not going to fix Pristina's trash system. We're going to model it.
 
 > **Background + framing:** [quarterly.systems/trash](https://quarterly.systems/trash/) (the opening presentation)
->
-> **Live demo:** [quarterly.systems/trashdemo](https://quarterly.systems/trashdemo/) (HackTheTrash mockups)
 
 ---
 
@@ -80,8 +78,6 @@ Not yet merged to main; live development on the feature branch.
 **For Sim builders** → start at [`dossier/sim-cards.md`](dossier/sim-cards.md) → then [`dossier/system-map.json`](dossier/system-map.json) (the data model the Sim reads directly) → then [`dossier/law-diff.md`](dossier/law-diff.md) (every diff is a player-action card).
 
 **For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then check the `feat/timelapse` branch for the in-flight Phase 1 work.
-
-**For curious citizens** → the live demo at [quarterly.systems/trashdemo](https://quarterly.systems/trashdemo/) is the gentlest entry point.
 
 ## Open verification questions
 

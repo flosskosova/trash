@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+/* ─── Fonts ──────────────────────────────────────────────────────────────── */
+@import "@fontsource-variable/dm-sans/opsz.css";
+@import "@fontsource/dm-mono/400.css";
+@import "@fontsource/dm-mono/500.css";
+
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'Courier New', monospace;
+}
+
+:root {
+  --color-operational: #F59E0B;
+  --color-municipal:   #3B82F6;
+  --color-national:    #8B5CF6;
+  --color-citizens:    #10B981;
+  --color-informal:    #94A3B8;
+  --color-external:    #0EA5E9;
+  --color-endpoint:    #78716C;
+  --color-blocked:     #EF4444;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  background: #07090F;
+  color: #f1f5f9;
+}
+
+/* ─── React Flow overrides ───────────────────────────────────────────────── */
+.react-flow__background {
+  background: #0F172A;
+}
+
+.react-flow__edge-path {
+  transition: stroke 0.3s, opacity 0.3s;
+}
+
+.react-flow__edge.dimmed .react-flow__edge-path {
+  opacity: 0.15;
+}
+
+.react-flow__node.dimmed {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.react-flow__node {
+  transition: opacity 0.3s;
+}
+
+.react-flow__controls {
+  background: #0F1829;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.react-flow__controls-button {
+  background: #0F1829;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #475569;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(255,255,255,0.05);
+  color: #94A3B8;
+}
+
+.react-flow__minimap {
+  background: #0F1829;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* ─── News ticker scroll ─────────────────────────────────────────────────── */
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: tickerScroll 35s linear infinite;
+}
+
+/* Floating ticker pill reveal */
+@keyframes tickerReveal {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.ticker-container {
+  animation: tickerReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Actor sidebar slide in ─────────────────────────────────────────────── */
+@keyframes sidebarSlideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Reaction emoji pop ─────────────────────────────────────────────────── */
+@keyframes reactionPop {
+  0%   { transform: scale(0) translateY(6px);  opacity: 0; }
+  55%  { transform: scale(1.35) translateY(-3px); opacity: 1; }
+  100% { transform: scale(1) translateY(0);    opacity: 1; }
+}
+
+.reaction-pop {
+  animation: reactionPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ─── Sidebar scroll ─────────────────────────────────────────────────────── */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.14);
+}

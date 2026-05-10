@@ -39,6 +39,10 @@ Source materials in [`enrichment/`](enrichment/) — 5 documents (Albanian + Eng
 
 End-to-end MVP for citizens reporting illegal dumps with photo + GPS. Production-grade infrastructure, built end-to-end during the weekend by sami and contributors.
 
+| Public map | Photo-first /report | Authority Dashboard |
+|---|---|---|
+| ![Public map of Pristina with reports + status legend](hackthetrash/screenshots/HackTheTrash-map.png) | ![Report page — 'Just a photo. Everything else is optional.'](hackthetrash/screenshots/HackTheTrash-report.png) | ![Authority Dashboard with counts + reports queue](hackthetrash/screenshots/HackTheTrash-dashboard.png) |
+
 - **Web app** (Next.js 14 + TypeScript + TailwindCSS + Leaflet): landing, `/report`, `/map` (auto-refreshing public map), `/dashboard`, `/admin` panel
 - **Mobile app** (React Native + Expo): native camera + GPS, OpenStreetMap layer in WebView, push notifications, offline submission queue
 - **Backend** (Node.js + Express + PostgreSQL + PostGIS): full REST API, Sentinel-grade auth (bcrypt + JWT + brute-force protection + CORS allowlist + hardening headers)

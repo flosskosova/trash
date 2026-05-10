@@ -78,9 +78,14 @@ Two iterations shipped on the branch, with substantive findings:
 
 An interactive web app that ingests the dossier and renders it as an explorable system map. Built by Barlli + Aldikrasniqi on `feat/raci-matrix`.
 
+![Pristina Trash System actor map — interactive viewer with node-type + edge-type legend, scenarios panel, and minimap](screenshots/actormap.png)
+
 - Normalizes the dossier into a single `dossier.json` ("single source of truth")
 - Collapsible stage row groups
 - Rich actor preview panels with categorised edges per cell
+- Node types: Operational / Municipal / National / Citizens / Informal / External / Physical / Blocked
+- Edge types: Money flow / Authority / Political / Oversight / Operational
+- Scenarios panel ("KLMC raises landfill fees 30%", "Municipality regains billing authority")
 - Motion library for transitions (not plain CSS)
 
 Not yet merged to main; live development on the feature branch.

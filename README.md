@@ -56,7 +56,19 @@ A free-Sentinel-2 pipeline for monitoring waste accumulations across Kosovo. 10m
 - **[`PHASES.md`](TrashFromSpace/PHASES.md)** — 6-phase project roadmap (known sites first, then candidates, then validation against AMMK)
 - **[`known-sites.geojson`](TrashFromSpace/known-sites.geojson)** — 14 Kosovo waste sites (7 sanitary landfills + 4 non-sanitary + 3 recycling/processing facilities)
 - **[`docs/PHASE1-PLAN.md`](TrashFromSpace/docs/PHASE1-PLAN.md)** — step-by-step Phase 1 build plan
-- **Phase 1 is in flight** on the [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) branch — Barlli has shipped 9 years of Mirash imagery (2017-2026) as paired RGB + NDVI animations
+
+#### Active build on [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) (Barlli — depth-first on Mirash)
+
+Two iterations shipped on the branch, with substantive findings:
+
+- **Iter 01** — 14 frames over 2017-2026, 2km AOI, true-colour + NDVI animations
+- **Iter 02** — 35 frames, 800m muni-only AOI, true-colour + NDVI + BSI animations, full quantification
+- **`landfill-timelapse/REPORT.md`** — 213-line analysis with these headline findings:
+  - **NDVI inside the 400m ROI fell 77%** between 2017 and April 2026 (+0.258 → +0.060)
+  - **Bare-ground area grew 72%** (87,400 m² → 150,300 m²) before the ROI saturated
+  - **Step-change identified across 2021** — vegetation index falls off a cliff over a single year, calling for ground-truth on the cause (KLMC contract change? scavenger eviction? state-of-emergency expansion?)
+  - **Water-vs-waste discrimination** working via BSI — a new groundwater-filled pit appeared NW of the muni pin from ~2020 onwards
+- **Tooling note:** pure stdlib + numpy + Pillow + matplotlib. No GDAL, no API key. Data via Microsoft Planetary Computer STAC. ~90s per run.
 
 ### 🗺 [`trash-map/`](https://github.com/flosskosova/trash/tree/feat/raci-matrix/trash-map) (on `feat/raci-matrix` branch) — the interactive viewer
 
@@ -77,7 +89,7 @@ Not yet merged to main; live development on the feature branch.
 
 **For Sim builders** → start at [`dossier/sim-cards.md`](dossier/sim-cards.md) → then [`dossier/system-map.json`](dossier/system-map.json) (the data model the Sim reads directly) → then [`dossier/law-diff.md`](dossier/law-diff.md) (every diff is a player-action card).
 
-**For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then check the `feat/timelapse` branch for the in-flight Phase 1 work.
+**For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then read Barlli's [`REPORT.md`](https://github.com/flosskosova/trash/blob/feat/timelapse/landfill-timelapse/REPORT.md) on the `feat/timelapse` branch (Mirash NDVI -77% over 9 years, with a step-change in 2021).
 
 ## Open verification questions
 

@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pristina region — wide AOI",
+        "description": "Pristina + Obiliq (Mirash landfill, KEK power plants) + Fushë Kosova (informal recycling) + Lipjan + Drenas, with buffer for rivers Sitnica/Llap/Drenica. Recommended starting AOI for the full pipeline.",
+        "source": "TrashFromSpace/README.md Phase 2 — wider analysis area",
+        "crs": "EPSG:4326",
+        "approximate_area_km2": 2300
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [20.70, 42.45],
+          [21.30, 42.45],
+          [21.30, 42.78],
+          [20.70, 42.78],
+          [20.70, 42.45]
+        ]]
+      }
+    }
+  ]
+}

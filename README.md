@@ -83,7 +83,11 @@ Two iterations shipped, with substantive findings:
 
 The Vite + React actor-map UI lives on main as **two parallel implementations** with different design choices. Both share the same underlying actor-and-edge data but diverge in architecture and feature surface.
 
-![Pristina Trash System actor map — interactive viewer with node-type + edge-type legend, scenarios panel, and minimap](screenshots/actormap.png)
+| Graph view (both variations) | Matrix view (`trash-map/` only) |
+|---|---|
+| ![Pristina Trash System actor map — graph view with node-type + edge-type legend, scenarios panel, and minimap](screenshots/actormap.png) | ![Pristina Trash System RACI matrix view — actors as columns, activities as rows, RACI letters in cells, with horizon + lens filters](screenshots/matrix.png) |
+
+The **matrix view** in `trash-map/` makes the underlying RACI data browsable — actors as columns, activities grouped by lifecycle phase (Source separation / Collection / Sorting / Recovery / etc.) as rows, RACI letters in colored cells. Filters at the top toggle between **current 2024-2026** and **post-new-law 2027+** horizons, plus lenses for Operational / Policy / Enforcement and a "phantom A only" mode that surfaces accountability-without-execution cells. (This view is the answer to the morning feedback that the markdown RACI matrices were hard for humans to interpret — interactive UI was the second solution we shipped, alongside [`dossier/sim-cards.md`](dossier/sim-cards.md).)
 
 | Variation | Path | Architecture | Built by |
 |---|---|---|---|

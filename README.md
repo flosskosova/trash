@@ -3,70 +3,126 @@
 A weekend hackathon at Prishtina Hackerspace, May 9-10, 2026.
 We're not going to fix Pristina's trash system. We're going to model it.
 
-Background and framing: [the presentation](https://quarterly.systems/trash/).
+> **Background + framing:** [quarterly.systems/trash](https://quarterly.systems/trash/) (the opening presentation)
+>
+> **Live demo:** [quarterly.systems/trashdemo](https://quarterly.systems/trashdemo/) (HackTheTrash mockups)
+
+---
 
 ## The idea
 
-Pristina's waste system is a multi-layer system: city operations, recycling
-streams, informal scavengers, EU compliance reporting. Every layer thinks
-it's the main story. None of them are. The whole thing is the story.
+Pristina's waste system is a multi-layer system: city operations, recycling streams, informal scavengers, EU compliance reporting. Every layer thinks it's the main story. None of them are. The whole thing is the story.
 
-Complex systems are easier to play than read. So this weekend we build a
-small open-source simulation of how Pristina's trash actually works.
+Complex systems are easier to play than read. So this weekend we built tools to understand how Pristina's trash actually works — from three angles at once: research the system, give citizens a way to report what's broken in it, and watch it from space.
 
-Think SimCity for the part of the city nobody thinks about.
+Useful AND fun. Plenty of civic-tech projects hit "useful" and stop there. We're aiming for both. Precedents we're learning from (and some we're trying not to repeat) live in [civic-tech-precedents.md](civic-tech-precedents.md).
 
-We want this to be useful AND fun to play. Plenty of civic tech projects
-hit "useful" and stop there. We're aiming for both. Precedents we're
-learning from (and some we're trying not to repeat) live in
-[civic-tech-precedents.md](civic-tech-precedents.md).
+## What's been built
 
-## Part 1: Research
+Three project surfaces, attacking the same problem from different angles:
 
-First we learn the system. Where does the trash go, who pays for it, who
-profits from it, who fights about it. Public sources only. If we can't
-link to it, it doesn't go in.
+### 🔬 [`dossier/`](dossier/) — the research package
 
-A starting dossier lives at [dossier/how-trash-works-pristina.md](dossier/how-trash-works-pristina.md) -
-actors, mechanisms, disputes, and structural pathologies, with inline
-links to public sources. AI-generated draft; verify any claim against
-its source before using it.
+A structured, cross-linked research package on how Pristina's waste system actually operates. AI-assisted, source-cited, openly draft.
 
-## Part 2: Make a Map
+- **[`how-trash-works-pristina.md`](dossier/how-trash-works-pristina.md)** — the foundational dossier (operational + political layer; the 2024-2025 Pastrimi-Komuna dispute, named actors, citizen quotes)
+- **[`timeline.md`](dossier/timeline.md)** — master chronology 2010-2027 (~95 dated events across 8 periods)
+- **[`numbers.md`](dossier/numbers.md)** — canonical numbers reference (115 data points, 4 chart-ready time series)
+- **[`law-diff.md`](dossier/law-diff.md)** — old Law 04/L-060 vs the upcoming new Law on Integrated Waste Management (13 dimensions diffed)
+- **[`system-map.json`](dossier/system-map.json) + [`system-map.md`](dossier/system-map.md)** — graph data model (60 nodes, 90 edges; current state + post-new-law 2027 state)
+- **[`sim-cards.md`](dossier/sim-cards.md)** — 21 policy levers as a card deck for the simulation (15 INDEP/KAS + 6 DYVÓ)
+- **[`tensions.md`](dossier/tensions.md)** — cross-source reconciliation (where the dossier and enrichment disagree — and where they don't, despite appearances)
+- **[`acronyms.md`](dossier/acronyms.md)** — glossary (~50 entries; resolves the KAS collision between Kosovo Statistics and Konrad-Adenauer-Stiftung)
+- **5 enrichment summaries** (INDEP/KAS Apr 2026, GIZ MPG-CE, DYVÓ 2023 plastic research, Mazreku/MMPHI new-law deck, DYVÓ survey instrument)
 
-Turn the research into a map. Nodes are actors. Edges are influence,
-money, dependency. Goal: when someone asks "who has power here?", the
-map answers.
+Source materials in [`enrichment/`](enrichment/) — 5 documents (Albanian + English) contributed by Barlli at the start of the hackathon. Field imagery in [`prishtina-trash-images/`](prishtina-trash-images/) — photographs from Sunny Hill and UÇK Street by Bleron.
 
-## Part 3: Make it a Game
+### 📱 [`hackthetrash/`](hackthetrash/) — the citizen reporting platform
 
-Based on how it all works, choose a "player" within that system to model how it works. When A changes, what likely happens to B, C, and D, and what secondary effects might that have?
+End-to-end MVP for citizens reporting illegal dumps with photo + GPS. Production-grade infrastructure, built end-to-end during the weekend by sami and contributors.
 
+- **Web app** (Next.js 14 + TypeScript + TailwindCSS + Leaflet): landing, `/report`, `/map` (auto-refreshing public map), `/dashboard`, `/admin` panel
+- **Mobile app** (React Native + Expo): native camera + GPS, OpenStreetMap layer in WebView, push notifications, offline submission queue
+- **Backend** (Node.js + Express + PostgreSQL + PostGIS): full REST API, Sentinel-grade auth (bcrypt + JWT + brute-force protection + CORS allowlist + hardening headers)
+- **Admin panel** with 4-action moderation, audit trail, AI image classifier (mock + HuggingFace pluggable)
+- **i18n**: English + Albanian (Shqip), 111 translation keys, full UTF-8 diacritics
+- **Pristina-only** scope: default centre 42.6629, 21.1655; demo seeds use Skanderbeg Square + Sunny Hill + UÇK Street; Komuna e Prishtinës as authority user
 
-## The format
+See [`hackthetrash/CHANGELOG.md`](hackthetrash/CHANGELOG.md) for the full v0.1.0 release notes.
 
-Saturday morning we meet and talk trash. Then research. Then maybe build some little prototypes.
-Sunday we finish and work on integration and game building.
+### 🛰 [`TrashFromSpace/`](TrashFromSpace/) — the satellite monitoring pipeline
 
-### Likely break into teams for research. Might look like:
+A free-Sentinel-2 pipeline for monitoring waste accumulations across Kosovo. 10m resolution, 5-day revisit, $0 imagery cost.
 
-- **City Government** - the mayor's office and sanitation department; sets fees, contracts, and policy
-- **Collection Company** - Pastrimi and the parallel collectors; trucks, routes, billing, the registry dispute
-- **Landfill Operations** - KLMC and the regional landfill; where it ends up, who pays, what compliance means downstream
-- **National Politics** - Ministry of Environment, central government, EU accession pressure; the rulebook everyone operates inside
+- **[`README.md`](TrashFromSpace/README.md)** — full pipeline spec with honest framing on what 10m resolution can/cannot detect
+- **[`PHASES.md`](TrashFromSpace/PHASES.md)** — 6-phase project roadmap (known sites first, then candidates, then validation against AMMK)
+- **[`known-sites.geojson`](TrashFromSpace/known-sites.geojson)** — 14 Kosovo waste sites (7 sanitary landfills + 4 non-sanitary + 3 recycling/processing facilities)
+- **[`docs/PHASE1-PLAN.md`](TrashFromSpace/docs/PHASE1-PLAN.md)** — step-by-step Phase 1 build plan
+- **Phase 1 is in flight** on the [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) branch — Barlli has shipped 9 years of Mirash imagery (2017-2026) as paired RGB + NDVI animations
 
-### Research Outputs
+### 🗺 [`trash-map/`](https://github.com/flosskosova/trash/tree/feat/raci-matrix/trash-map) (on `feat/raci-matrix` branch) — the interactive viewer
 
-- **Standardize** - All four teams output research in the same shape (a
-  `team-name/README.md` with the same headers). Makes Part 2 (the map)
-  and Part 3 (the game) actually composable.
-- **Optimize for LLM** - Structure the research so an LLM agent can read
-  and act on it during Part 3. Short paragraphs, named entities, explicit
-  relationships, no implicit context.
+An interactive web app that ingests the dossier and renders it as an explorable system map. Built by Barlli + Aldikrasniqi on `feat/raci-matrix`.
 
-## What we'll end with
+- Normalizes the dossier into a single `dossier.json` ("single source of truth")
+- Collapsible stage row groups
+- Rich actor preview panels with categorised edges per cell
+- Motion library for transitions (not plain CSS)
 
-- Real-world dossier: how Pristina's waste system actually operates. Real names, real numbers, real
-  disputes. Everything we can learn!
-- A map of all trash actors: who interacts with whom, color-coded by tier.
-- A demo of of some kind, likely a "slice" or a smaller piece of what might be a larger simulation
+Not yet merged to main; live development on the feature branch.
+
+## Quick navigation by audience
+
+**For researchers and policy folks** → start at [`dossier/how-trash-works-pristina.md`](dossier/how-trash-works-pristina.md) → then [`dossier/timeline.md`](dossier/timeline.md) → then the enrichment summaries.
+
+**For app developers** → start at [`hackthetrash/README.md`](hackthetrash/README.md) → then [`hackthetrash/docs/api/API.md`](hackthetrash/docs/api/API.md) and [`hackthetrash/docs/architecture/ARCHITECTURE.md`](hackthetrash/docs/architecture/ARCHITECTURE.md).
+
+**For Sim builders** → start at [`dossier/sim-cards.md`](dossier/sim-cards.md) → then [`dossier/system-map.json`](dossier/system-map.json) (the data model the Sim reads directly) → then [`dossier/law-diff.md`](dossier/law-diff.md) (every diff is a player-action card).
+
+**For satellite-imagery folks** → start at [`TrashFromSpace/README.md`](TrashFromSpace/README.md) → then check the `feat/timelapse` branch for the in-flight Phase 1 work.
+
+**For curious citizens** → the live demo at [quarterly.systems/trashdemo](https://quarterly.systems/trashdemo/) is the gentlest entry point.
+
+## Open verification questions
+
+A handful of open issues track factual questions that need primary-source verification before we can publish numbers as canon:
+
+- [#4](https://github.com/flosskosova/trash/issues/4) — Did the Deposit Refund System (DRS) actually launch January 2025?
+- [#5](https://github.com/flosskosova/trash/issues/5) — Trepça lead battery recycling — current operating status?
+- [#6](https://github.com/flosskosova/trash/issues/6) — Ujë Miros bottle reuse — actual scale or marketing claim?
+- [#14](https://github.com/flosskosova/trash/issues/14) — Strategy 2024-2030 vs 2024-2035 — which dating is current?
+- [#15](https://github.com/flosskosova/trash/issues/15) — Status of the new Law on Integrated Waste Management
+- [#18](https://github.com/flosskosova/trash/issues/18) — Primary source library accessibility audit (10 sources, 6 confirmed accessible)
+
+Contributions welcome on any of these — see issue thread for what to verify and where.
+
+## The hackathon — what actually happened
+
+**Saturday, May 9, 2026** — kickoff at Prishtina Hackerspace + remote on Mattermost. Token distribution via [vibetoken.lol/trash-please](https://vibetoken.lol/trash-please) for free Vibes/Claude tokens. Initial team breaks: research, app build, data extraction. By end of day: HackTheTrash MVP shipping; Barlli's enrichment material extracted into 5 structured summaries; original dossier landed.
+
+**Sunday, May 10, 2026** — integration day. HackTheTrash hardens auth + admin panel + i18n. TrashFromSpace scaffolds + Phase 1 starts. Interactive map UI takes shape on a feature branch. Dossier package matures to 14 cross-linked files. Verification issues opened. RACI matrices distilled into a card deck for readability.
+
+## Contributors
+
+| Contributor | What they shipped |
+|---|---|
+| **[sami](https://github.com/samikciku)** (samikciku) | Built HackTheTrash end-to-end: web + mobile + backend + admin + i18n |
+| **K. Mike Merrill** (kmikeym) | Dossier package, RACI/Sim cards, TrashFromSpace scaffold, project framing |
+| **[Barlli](https://github.com/Barlli)** | Enrichment source documents, Mirash time-lapse pipeline, interactive matrix UI |
+| **[Aldikrasniqi](https://github.com/Aldikrasniqi)** | Interactive map data structures + UI motion library |
+| **[Bleron Limani](https://github.com/bleroni)** (bleroni) | Field photographs of trash containers (Sunny Hill, UÇK Street) |
+| **[Ari Karakushi](https://github.com/Aldikrasniqi)** | Geolocation prompt for the web app |
+
+## Caveats
+
+- The dossier is **AI-assisted** at multiple layers. Verify any factual claim against the cited primary source before publication.
+- Several numbers are flagged as ⚠ (in active tension between sources) or ? (pending verification). See [`dossier/tensions.md`](dossier/tensions.md).
+- Future-dated events (post-May 2026) are planned/announced. Verification status varies — see open issues.
+
+## License
+
+MIT. The hackathon was hosted by [FLOSSK](https://flossk.org) — Free Libre Open Source Software Kosova.
+
+---
+
+*Last updated: 2026-05-10 (Sunday afternoon of the hackathon weekend). The README will continue to drift as the work continues; this is a snapshot, not a contract.*

@@ -13,7 +13,7 @@ Pristina's waste system is a multi-layer system: city operations, recycling stre
 
 Complex systems are easier to play than read. So this weekend we built tools to understand how Pristina's trash actually works — from three angles at once: research the system, give citizens a way to report what's broken in it, and watch it from space.
 
-Useful AND fun. Plenty of civic-tech projects hit "useful" and stop there. We're aiming for both. Precedents we're learning from (and some we're trying not to repeat) live in [civic-tech-precedents.md](civic-tech-precedents.md).
+This project exists alongside other civic-tech work — see [civic-tech-precedents.md](civic-tech-precedents.md) for the broader landscape.
 
 ## What's been built
 

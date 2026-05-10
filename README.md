@@ -90,6 +90,14 @@ An interactive web app that ingests the dossier and renders it as an explorable 
 
 Not yet merged to main; live development on the feature branch.
 
+### 📅 [`dossier/timeline-app/`](dossier/timeline-app/) — the interactive crisis timeline
+
+A scrollable D3.js timeline of the December 2024 – June 2025 Pastrimi-Komuna regulation crisis. 11 curated events, color-coded by type (regulation / operational / political / court), click any dot for the full account.
+
+**Live app:** [vibes.diy/vibe/bestboy/pristina-waste-crisis](https://vibes.diy/vibe/bestboy/pristina-waste-crisis/)
+
+Built with **[Vibes DIY](https://vibes.diy/)**. Source archived at [`dossier/timeline-app/App.jsx`](dossier/timeline-app/App.jsx) for forking. Companion to [`dossier/timeline.md`](dossier/timeline.md), focused specifically on the regulation-crisis arc.
+
 ## Quick navigation by audience
 
 **For researchers and policy folks** → start at [`dossier/how-trash-works-pristina.md`](dossier/how-trash-works-pristina.md) → then [`dossier/timeline.md`](dossier/timeline.md) → then the enrichment summaries.

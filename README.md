@@ -79,19 +79,25 @@ Two iterations shipped, with substantive findings:
   - **Water-vs-waste discrimination** working via BSI — a new groundwater-filled pit appeared NW of the muni pin from ~2020 onwards
 - **Tooling note:** pure stdlib + numpy + Pillow + matplotlib. No GDAL, no API key. Data via Microsoft Planetary Computer STAC. ~90s per run.
 
-### 🗺 [`trash-map/`](trash-map/) — the interactive viewer
+### 🗺 Two interactive map variations
 
-An interactive web app that ingests the dossier and renders it as an explorable system map. Built by Barlli + Aldikrasniqi (merged via PR #46 alongside the timelapse work).
+The Vite + React actor-map UI lives on main as **two parallel implementations** with different design choices. Both share the same underlying actor-and-edge data but diverge in architecture and feature surface.
 
 ![Pristina Trash System actor map — interactive viewer with node-type + edge-type legend, scenarios panel, and minimap](screenshots/actormap.png)
 
-- Normalizes the dossier into a single `dossier.json` ("single source of truth")
-- Collapsible stage row groups
-- Rich actor preview panels with categorised edges per cell
+| Variation | Path | Architecture | Built by |
+|---|---|---|---|
+| **Matrix-focused** | [`trash-map/`](trash-map/) | Single `dossier.json` ingested by app; **adds matrix view + cell detail panel** on top of the graph | Barlli + Aldikrasniqi (merged via PR #46) |
+| **Modular-data graph** | [`interactive-map/`](interactive-map/) | Seven separate JS modules (`acronyms.js`, `edges.js`, `levers.js`, `nodes.js`, `numbers.js`, `recommendations.js`, `tensions.js`); graph view only | Aldikrasniqi (pulled from feat/interactive-map; latest data refactor 2026-05-10) |
+
+Both share:
 - Node types: Operational / Municipal / National / Citizens / Informal / External / Physical / Blocked
 - Edge types: Money flow / Authority / Political / Oversight / Operational
 - Scenarios panel ("KLMC raises landfill fees 30%", "Municipality regains billing authority")
 - Motion library for transitions (not plain CSS)
+- Same Vite tooling, same component shell
+
+**Why both:** Aldikrasniqi's modular-data approach kept evolving (most recent commit added 185 lines to `nodes.js` with disambiguation entries) after Barlli forked off and normalized to `dossier.json`. The two designs aren't mergeable cleanly without picking one architecture and porting the other's content. Keeping both lets future contributors choose their starting point and pick the design choice that fits.
 
 ### 📅 [`dossier/timeline-app/`](dossier/timeline-app/) — the interactive crisis timeline
 
@@ -102,16 +108,6 @@ A scrollable D3.js timeline of the December 2024 – June 2025 Pastrimi-Komuna r
 **Live app:** [vibes.diy/vibe/bestboy/pristina-waste-crisis](https://vibes.diy/vibe/bestboy/pristina-waste-crisis/)
 
 Built with **[Vibes DIY](https://vibes.diy/)**. Source archived at [`dossier/timeline-app/App.jsx`](dossier/timeline-app/App.jsx) for forking. Companion to [`dossier/timeline.md`](dossier/timeline.md), focused specifically on the regulation-crisis arc.
-
-## Active feature branches (not yet merged)
-
-Substantive work-in-progress lives on these branches. The READMEs here will be updated as each one merges to main.
-
-### 🗺 [`feat/interactive-map`](https://github.com/flosskosova/trash/tree/feat/interactive-map) — data structures scaffold (Aldikrasniqi)
-
-Earlier version of the trash-map app focused on the data layer. Comprehensive structures for acronyms, edges, nodes, levers, tensions, recommendations, numerical figures. This branch is the base `feat/raci-matrix` was built on. May be effectively subsumed by the merged `trash-map/` work or hold remaining unmerged improvements — review when reactivated.
-
----
 
 ## Quick navigation by audience
 

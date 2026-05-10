@@ -100,6 +100,33 @@ A scrollable D3.js timeline of the December 2024 – June 2025 Pastrimi-Komuna r
 
 Built with **[Vibes DIY](https://vibes.diy/)**. Source archived at [`dossier/timeline-app/App.jsx`](dossier/timeline-app/App.jsx) for forking. Companion to [`dossier/timeline.md`](dossier/timeline.md), focused specifically on the regulation-crisis arc.
 
+## Active feature branches (not yet merged)
+
+Substantive work-in-progress lives on these branches. The READMEs here will be updated as each one merges to main.
+
+### 🛰 [`feat/timelapse`](https://github.com/flosskosova/trash/tree/feat/timelapse) — Mirash satellite analysis (Barlli)
+
+Phases 1-3 of TrashFromSpace done depth-first for Mirash. This branch is built on top of `feat/raci-matrix` and contains everything from it plus the satellite work.
+
+- `landfill-timelapse/iterations/01-midpoint-2km/` — initial 14-frame time-lapse (RGB + NDVI)
+- `landfill-timelapse/iterations/02-muni-bsi/` — 35-frame quantified analysis with **NDVI -77% headline finding**
+- `landfill-timelapse/REPORT.md` — 213-line analysis, **2021 step-change** identified
+- `build_timelapse.py` — pure stdlib + numpy + Pillow + matplotlib, no API key, ~90s/run
+
+### 🗺 [`feat/raci-matrix`](https://github.com/flosskosova/trash/tree/feat/raci-matrix) — interactive actor-map UI (Barlli + Aldikrasniqi)
+
+Vite + React app at `trash-map/` that ingests the dossier as a normalized `dossier.json` ("single source of truth") and renders it as an explorable system map. See [`screenshots/actormap.png`](screenshots/actormap.png) for the live UI.
+
+- Collapsible stage row groups
+- Rich actor preview panels with categorised edges per cell
+- Motion library for transitions
+
+### 🗺 [`feat/interactive-map`](https://github.com/flosskosova/trash/tree/feat/interactive-map) — data structures scaffold (Aldikrasniqi)
+
+Earlier version of the trash-map app focused on the data layer. Comprehensive structures for acronyms, edges, nodes, levers, tensions, recommendations, numerical figures. This branch is the base `feat/raci-matrix` was built on; will likely be subsumed when `feat/timelapse` merges (which contains both).
+
+---
+
 ## Quick navigation by audience
 
 **For researchers and policy folks** → start at [`dossier/how-trash-works-pristina.md`](dossier/how-trash-works-pristina.md) → then [`dossier/timeline.md`](dossier/timeline.md) → then the enrichment summaries.

@@ -170,7 +170,7 @@ Contributions welcome on any of these — see issue thread for what to verify an
 - Future-dated events (post-May 2026) are planned/announced. Verification status varies — see open issues.
 
 ## Websites
-https://hackthetrash.vercel.app |
+https://hackthetrash.flossk.org |
 https://trash-map.quarterly.systems/
 
 ## License
